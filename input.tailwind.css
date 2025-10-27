@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* theme variable  */
+@theme {
+  --color-primary: #86EFAC; /* brand color */
+  --color-brand-contrast: black; /* black or white based on brand color */
+  --color-light-element: #f7f7f7; /* element color in light theme */
+  --color-light-element-hover: #f2f2f2; /* element hover color in light theme */
+  --color-dark-element: #101010; /* element color in dark theme */
+  --color-dark-element-hover: #151515; /* element hover color in dark theme */
+  --color-light-bg: #fff; /* background color in light theme */
+  --color-dark-bg: #030303; /* background color in dark theme */
+  --default-transition-duration: 0.5s; /* animation speed */
+}
+
+/* fonts */
+@font-face {
+  font-family: "FunnelDisplay";
+  src: url("../fonts/FunnelDisplay-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "FunnelDisplay";
+  src: url("../fonts/FunnelDisplay-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "FunnelDisplay";
+  src: url("../fonts/FunnelDisplay-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "FunnelDisplay";
+  src: url("../fonts/FunnelDisplay-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+body {
+  font-family: "FunnelDisplay", sans-serif;
+}
+
+/* odometer animation duration */
+.odometer.odometer-auto-theme .odometer-ribbon-inner, .odometer.odometer-theme-default .odometer-ribbon-inner {
+  @apply !duration-3000
+}

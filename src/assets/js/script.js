@@ -1,198 +1,275 @@
 // gsap plugin initialization
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-// get primary color from css variable
-let primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
-
-/****************************************
-**** dark mode ****
-****************************************/
-
-// get theme from local storage
+/* dark mode
+------------------------------------------------------------*/
+// check theme from local storage
 if (localStorage.getItem("theme") === "dark") {
   document.documentElement.classList.add("dark");
 }
-
-// when click dark/light mode button
+// when click to dark/light mode button
 document.getElementById("darkToggle").addEventListener("click", () => {
-  document.documentElement.classList.toggle("dark"); // toggle "dark" class in html tag
+  document.documentElement.classList.toggle("dark"); // toggle "dark" class in <html> tag
   document.documentElement.classList.contains("dark") ? localStorage.setItem("theme", "dark") : localStorage.setItem("theme", "light"); // save theme in local store
 });
 
-
-/****************************************
-**** cursor follower ****
-****************************************/
+/* cursor follower
+------------------------------------------------------------*/
+let cursorFollower = document.querySelector("#cursorFollower");
+let primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim(); // get primary color from css varriable
 
 // follow on mouse move
 document.addEventListener("mousemove", (e) => {
-  document.querySelector("#cursorFollower").classList.add("lg:opacity-100");
-  gsap.to("#cursorFollower", {
-    x: e.clientX - 6,
-    y: e.clientY - 6,
-    duration: 1.1,
-    ease: "power2.out"
-  });
+  // only for desktop devices
+  gsap.matchMedia().add("(min-width: 1024px)", () => {
+    cursorFollower.style.display = "flex" // visible
+    gsap.to(cursorFollower, {
+      x: e.clientX - 6, // center in x axis
+      y: e.clientY - 6, // center in y axis
+      duration: 1, // speed
+      ease: "power4.out",
+    });
+  })
 });
 
-// hover on buttons and links
-document.querySelectorAll("button, a").forEach(e => {
-  e.addEventListener("mousemove", (e) => { // when mouse enter
-    gsap.to("#cursorFollower", {
-      scale: 0,
+// in button and links
+document.querySelectorAll(".cursor-colorfull, .cursor-black-white").forEach(e => {
+  // when mouse enter
+  e.addEventListener("mouseenter", (e) => {
+    gsap.to(cursorFollower, {
+      scale: 4,
+      opacity: 0.3,
+      backgroundColor: e.currentTarget.classList.contains("cursor-colorfull") ? primaryColor: "", // if button class is "cursor-colorfull": cursor color is brand color. otherwise not change of cursor color
     });
   });
-  e.addEventListener("mouseleave", (e) => { // when mouse leave
-    gsap.to("#cursorFollower", {
+  // when mouse leave: default style
+  e.addEventListener("mouseleave", (e) => {
+    gsap.to(cursorFollower, {
       scale: 1,
+      opacity: 1,
+      backgroundColor: localStorage.getItem("theme") === "dark" ? "#ffffff" : "#000000", // background color based on theme
     });
   });
 });
 
-// hover on portfolio image
-document.querySelectorAll("#portfolio article img").forEach(e => { // when mouse enter
-  e.addEventListener("mousemove", (e) => {
-    document.querySelector("#cursorFollower").innerHTML = `<p class="text-[3px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">View More</p>`;
-    gsap.to("#cursorFollower", {
-      scale: 6,
-      backdropFilter: "blur(4px)",
-      backgroundColor: primaryColor + "50",
+// in portfolio images
+document.querySelectorAll("#portfolio article img").forEach(e => {
+  // when mouse enter
+  e.addEventListener("mouseenter", (e) => {
+    cursorFollower.innerHTML = `<p class="text-[3px] text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">View More</p>`; // cursor text
+    gsap.to(cursorFollower, {
+      scale: 7,
+      backdropFilter: "blur(2px)", // blur effect
+      backgroundColor: "#00000050"
     });
   });
-  e.addEventListener("mouseleave", (e) => { // when mouse leave
-    document.querySelector("#cursorFollower").innerHTML = "";
-    gsap.to("#cursorFollower", {
+  // when mouse leave: default style
+  e.addEventListener("mouseleave", (e) => {
+    cursorFollower.innerHTML = ""; // default cursor text
+    gsap.to(cursorFollower, {
       scale: 1,
-      backdropFilter: "blur(0px)",
-      backgroundColor: "#757575",
+      opacity: 1,
+      backgroundColor: localStorage.getItem("theme") === "dark" ? "#ffffff" : "#000000", // default background color based on theme
     });
   });
 });
 
+// in email copy inside form section
+let copyElEmail = document.getElementById("copyEmail");
 
-/****************************************
-**** background cursor follower ****
-****************************************/
+// when mouse enter
+copyElEmail.addEventListener("mouseenter", (e) => {
+  cursorFollower.innerHTML = `<p class="text-[3px] text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">Copy Email</p>`; // add "view more" text
+  gsap.to(cursorFollower, {
+    scale: 7, // scale up
+    backdropFilter: "blur(2px)", // blur effect
+    backgroundColor: "#00000050" // background
+  });
+});
+// when mouse leave: default style
+copyElEmail.addEventListener("mouseleave", (e) => {
+  cursorFollower.innerHTML = "";
+  gsap.to(cursorFollower, {
+    scale: 1,
+    backdropFilter: "blur(0px)",
+    backgroundColor: localStorage.getItem("theme") === "dark" ? "#ffffff" : "#000000", // default background color based on theme
+  });
+});
+copyElEmail.addEventListener("click", () => { // when click
+  cursorFollower.innerHTML = `<p class="text-[3px] text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">Email Copied!</p>`; // cursor text
+});
 
+/* background cursor follower
+------------------------------------------------------------*/
+let bgCursor = document.querySelector("#bgCursor");
 // rotate
-gsap.to(".bgCursor", {
+gsap.to(bgCursor, {
   rotate: 360,
   duration: 5,
   repeat: -1,
   ease: "linear",
 });
-
 // follow on mouse move
 document.addEventListener("mousemove", (e) => {
-  gsap.to(".bgCursor", {
-    x: e.clientX - 200,
-    y: e.clientY - 200,
-    duration: 30,
-    ease: "power2.out"
+  gsap.to(bgCursor, {
+    x: e.clientX - 200, // center in x axis
+    y: e.clientY - 200, // center in y axis
+    duration: 10, // speed
   })
 });
 
-
-/****************************************
-**** smooth scroll ****
-****************************************/
+/* smooth scroll
+------------------------------------------------------------*/
+// lenis init
 const lenis = new Lenis({
-  duration: 1,
-  easing: (t) => t * (2 - t),
-  smooth: true,
+  duration: 0.7, // speed
+  easing: (t) => t * (2 - t), // easing in graph
 });
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
+// GSAP sync
+lenis.on('scroll', ScrollTrigger.update);
+// lenis gsap track sync
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+// lag smoothing off
+gsap.ticker.lagSmoothing(0);
 
-/****************************************
-**** go top with smooth scroll ****
-****************************************/
-const goTopBtn = document.getElementById("goTopBtn");
-const scrollProgress = document.getElementById("scrollProgress");
+/* animation
+------------------------------------------------------------*/
+// fade in up
+document.querySelectorAll(".anim-in-up").forEach((e=> {
+  // initial 
+  gsap.fromTo(e, {
+    opacity: 0,
+    y: 50,
+    duration: 0.5,
+    ease: "linear"
+  },
+  // final
+  {
+    y: 0,
+    opacity: 1,
+    scrollTrigger: {
+      trigger: e,
+      toggleActions: "play none none reverse"
+    }
+  })
+}));
+// fade in up for multiple element element in a row to delay effect
+ScrollTrigger.batch(".anim-in-up-group", {
+  interval: 0.2, // check scroll everytime dealy
+  onEnter: e => gsap.fromTo(e, // in viewport
+    { y: 50, opacity: 0 }, // initial style
+    { y: 0, opacity: 1, ease: "sine", stagger: 0.2 } // final style
+  ),
+  onLeaveBack: e => gsap.fromTo(e, // out viewport
+    { y: 0, opacity: 1 }, // initial style
+    { y: 50, opacity: 0 } // final style
+  )
+});
+// text slide
+document.fonts.ready.then(() => {
+  document.querySelectorAll(".text-slide").forEach(el => {
+    gsap.from(new SplitText(el, { type: "words, chars" }).chars, {
+      x: 100,
+      opacity: 0,
+      stagger: 0.03,
+      duration: 1,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top 100%",
+        toggleActions: "play none none reverse"
+      },
+    });
+  });
+});
+// text scrub opacity
+document.querySelectorAll(".text-scrub").forEach(el => {
+  gsap.from(new SplitText(el, { type: "words, chars" }).chars, {
+    stagger: 0.05,
+    opacity: 0.3,
+    scrollTrigger: {
+      trigger: el,
+      start: "top 80%",
+      end: "top 20%",
+      scrub: 1,
+    },
+  });
+});
+
+/* go top with smooth scroll
+------------------------------------------------------------*/
+const goTopBtn = document.getElementById("goTopBtn"); // get go top element
+const scrollProgress = document.getElementById("scrollProgress"); // get scroll progress
 lenis.on("scroll", () => {
   const scrollTop = lenis.scroll; // smooth scroll
   const docHeight = document.documentElement.scrollHeight - window.innerHeight; // top to present total height
   scrollProgress.style.height = (scrollTop / docHeight) * 100 + "%"; // scroll progress
-  // show button
+  // when scroll greater than 250px from top: show
   if (scrollTop > 250) {
-    goTopBtn.classList.remove("opacity-0", "translate-y-10", "pointer-events-none");
+    goTopBtn.classList.remove("opacity-0", "translate-y-10", "pointer-events-none"); // tailwind css class
     goTopBtn.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
   }
-  // hide button
+  // when scroll less than 250px from top: hide
   else {
     goTopBtn.classList.add("opacity-0", "translate-y-10", "pointer-events-none");
     goTopBtn.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
   }
 });
-// when click tot go top button
+// when click to go top button
 goTopBtn.addEventListener("click", () => {
-  lenis.scrollTo(0, { duration: 1.5, easing: (t) => t * (2 - t) });
+  lenis.scrollTo(0, { duration: 1.5, easing: (t) => t * (2 - t) }); // scroll with lenis smooth scroll
 });
 
-
-/****************************************
-**** scroll reveal initiation ****
-****************************************/
-function revealSection(selector, options = {}) {
-  ScrollReveal().reveal(selector, {
-    origin: 'bottom',
-    distance: '40px',
-    duration: 500,
-    opacity: 0,
-    easing: 'ease-in-out',
-    interval: 150,
-    reset: true,
-  //   beforeReveal: (el) => {
-  //     el.animate(
-  //       [
-  //         { filter: "blur(5px)" },                           --------------------------
-  //         { filter: "blur(0px)" }                  ===>      - This is for blur effect -
-  //       ],                                                   --------------------------
-  //       { duration: 700, fill: "forwards" }
-  //     );
-  //   },
-  //   beforeReset: (el) => {
-  //     el.style.filter = "blur(5px)";
-  //   },
-  });
-}
-
-
-/****************************************
-**** video pop up ****
-****************************************/
-
+/* youtube video pop up
+------------------------------------------------------------*/
+let popUpVideoModal = document.getElementById("popUpVideoModal");
 // video open
 function openVideoModal(el) {
-  document.querySelector("#popUpVideoModal iframe").src = "https://www.youtube.com/embed/" + el.getAttribute("data-youtube-video-embed-key");
-  document.getElementById("popUpVideoModal").classList.remove("hidden");
-  document.getElementById("popUpVideoModal").classList.add("flex");
+  popUpVideoModal.querySelector("iframe").src = el.getAttribute("data-youtube-video-embed"); // set youtube embed src to video pop up modal
+  // visible
+  popUpVideoModal.classList.remove("hidden");
+  popUpVideoModal.classList.add("flex");
+  // animation
+  gsap.set(popUpVideoModal, {
+    opacity: 0,
+    backdropFilter: "blur(0px)"
+  });
+  gsap.to(popUpVideoModal, {
+    opacity: 1,
+    backdropFilter: "blur(20px)",
+    duration: 0.5,
+    ease: "power2.out"
+  });
 }
-
 // video close
 document.querySelector("#popUpVideoModal button").addEventListener("click", () => {
-  document.getElementById("popUpVideoModal").classList.add("hidden");
-  document.getElementById("popUpVideoModal").classList.remove("flex");
-  document.querySelector("#popUpVideoModal iframe").src = "";
+  // animtion
+  gsap.to(popUpVideoModal, {
+    opacity: 0,
+    backdropFilter: "blur(0px)",
+    duration: 0.4,
+    ease: "power2.in",
+    onComplete: () => {
+      // invisible
+      popUpVideoModal.classList.add("hidden");
+      popUpVideoModal.classList.remove("flex");
+      // default src
+      popUpVideoModal.querySelector("iframe").src = "about:blank";
+    }
+  });
 });
 
-
-/****************************************
-**** navbar ****
-****************************************/
-
-// menu timeline
-let menuTimeLine = gsap.timeline();
-
-// body blur and prepare for click
+/* navbar
+------------------------------------------------------------*/
+let menuTimeLine = gsap.timeline(); // menu timeline init
+// menucontainer: body blur and prepare for click
 menuTimeLine.to("#menuContainer", {
   backdropFilter: "blur(10px)",
   duration: 0.3,
   onStart: () => {
-    menuContainer.classList.add("pointer-events-auto");
+    menuContainer.classList.add("pointer-events-auto"); // make clickable
     menuContainer.classList.remove("pointer-events-none");
   },
   onReverseComplete: () => {
@@ -201,327 +278,270 @@ menuTimeLine.to("#menuContainer", {
   },
 });
 // menu slide and items animation
-menuTimeLine.to("#menuBar", {
+menuTimeLine.to("#menuBar", { // menu bar: go right
   right: 0,
   duration: 0.2,
 }, "<");
-menuTimeLine.to("#toggleMenu span:nth-of-type(1)", {
+menuTimeLine.to("#toggleMenu span:nth-of-type(1)", { // menu toggle button first stick: rotate and go center
   rotation: 45,
   top: "50%",
   transformOrigin: "50% 50%",
 }, "<");
-menuTimeLine.to("#toggleMenu span:nth-of-type(2)", {
+menuTimeLine.to("#toggleMenu span:nth-of-type(2)", { // menu toggle button last stick: rotate and go center
   rotation: -45,
   top: "50%",
   transformOrigin: "50% 50%",
 }, "<");
-menuTimeLine.from("#menuBar button", {
+gsap.set("#menuBar button", { // dark/ligh toggle button: initial style: opacity and position
+  y: 0,
+  opacity: 0
+})
+menuTimeLine.to("#menuBar button", { // dark/light mode toggle button final styling: final style: opacity and position
+  y: -20,
+  opacity: 1,
+  duration: 0.05,
+});
+menuTimeLine.from("#manuListTitle", { // menu links title: opacity and position
   y: 30,
   opacity: 0,
   duration: 0.05,
 });
-menuTimeLine.from("#menuBar #manuTitle1", {
-  y: 30,
-  opacity: 0,
-  duration: 0.05,
-});
-menuTimeLine.from("#menuBar ul li", {
+menuTimeLine.from("#manuList li", { // menu links: opacity and position
   y: 30,
   stagger: 0.04,
   opacity: 0,
   duration: 0.5,
 });
-menuTimeLine.from("#menuBar #manuTitle2", {
+menuTimeLine.from("#manuSocialMediaTitle", { // secial media title: opacity and position
   y: 30,
   opacity: 0,
   duration: 0.05,
 });
-menuTimeLine.from("#menuBar div a", {
+menuTimeLine.from("#manuSocialMedia a", { // social media: opacity and position
   opacity: 0,
   y: 30,
   stagger: 0.04,
   duration: 0.05,
 });
-menuTimeLine.from("#menuBar #manuTitle3", {
+menuTimeLine.from("#menuContactTitle", { // contact title: opacity and position
   y: 30,
   opacity: 0,
   duration: 0.05,
 });
-menuTimeLine.from("#menuBar #menuContact p", {
+menuTimeLine.from("#menuContact a", { // contact items: opacity and position
   opacity: 0,
   y: 30,
   stagger: 0.04,
   duration: 0.05,
 });
 
-menuTimeLine.reverse(); // off timeline by default
+menuTimeLine.reverse(); // reverse timeline by default
 
-// menu toggle in button
+// when click to menu toggle button
 document.getElementById("toggleMenu").addEventListener("click", () => {
-  gsap.matchMedia().add("(min-width: 1024px)", () => {
-    menuTimeLine.reversed() ? lenis.stop() : lenis.start(); // stop/start scroll for equal or more than 1024px width devices
-  });
-  menuTimeLine.reversed() ? menuTimeLine.play() : menuTimeLine.reverse(); // play/reverse timeline
-  menuTimeLine.reversed() ? document.body.classList.remove("overflow-y-hidden") : document.body.classList.add("overflow-y-hidden"); // hide/show body scroll
+  // when toggle work as open nav bar
+  if (menuTimeLine.reversed()) {
+    menuTimeLine.play(); // play animation
+  }
+  // when toggle work as close nav bar
+  else {
+    menuTimeLine.reverse(); // reverse animation
+  }
 });
 
 // menu close on body click
 document.getElementById("menuContainer").addEventListener("click", () => {
   menuTimeLine.reverse(); // reverse timeline
-  lenis.start(); // start scroll
-  document.body.classList.remove("overflow-y-hidden"); // show body scroll
+});
+
+// off lenis smooth scroll on menubar scroll
+document.getElementById("menuBar").addEventListener("wheel", (e) => {
+  e.stopPropagation();
+  document.getElementById("menuBar").scrollTop += e.deltaY;
 });
 
 // active link
 let links = document.querySelectorAll("nav ul li a"); // get all nav links
 const sections = document.querySelectorAll("section, header"); // get all sections
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => { // when scroll
   let scrollPos = window.scrollY + 150; // add offset to scroll position
   sections.forEach((section, index) => {
     if(scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) { // when scroll position is in section
       links.forEach(link => link.classList.remove('active-nav-links')); // remove active class from all links
-      links[index].classList.add('active-nav-links'); // add active class to current link
+      // links[index].classList.add('active-nav-links'); // add active class to current link
+      links[index].classList.add('text-primary'); // style
     }
   });
 });
 
+// when nav link e click, reverse animation
+links.forEach(link => {
+  link.addEventListener("click", (e) => {
+    menuTimeLine.reverse();
+  });
+});
 
-/****************************************
-**** hero section ****
-****************************************/
-
+/* hero section
+------------------------------------------------------------*/
 // typewriter effect
-var typed = new Typed('#typewriter', {
-  stringsElement: '#typed-strings',
-  typeSpeed: 100,
-  backSpeed: 50,
-  backDelay: 1000,
-  loop: true,
-  showCursor: true,
-  cursorChar: '_',
+setTimeout(() => {
+  var typed = new Typed('#typewriter', { // typd.js init
+    stringsElement: '#typed-strings', // get typewriter content
+    typeSpeed: 100, // type speed
+    backSpeed: 50, // type speed in back
+    backDelay: 1000, // typewriter stable time
+    loop: true, // infinite
+    showCursor: true, // enable cursor
+    cursorChar: '|', // cusor icon
+  })
+}, 2500); // delay
+
+// name animation
+gsap.from(new SplitText("#heroTitle", { type: "chars" }).chars, {
+  x: 100,
+  opacity: 0,
+  stagger: 0.05,
+  delay: 1,
+  duration: 2,
+  ease: "power4.out",
+});
+// skill animation
+gsap.from(new SplitText("#typewriterContainer", { type: "chars" }).chars, {
+  x: 100,
+  opacity: 0,
+  stagger: 0.05,
+  delay: 1.7,
+  duration: 2,
+  ease: "power4.out",
+});
+// description animation
+gsap.from(new SplitText("#heroDescription", { type: "lines" }).lines, {
+  x: 100,
+  opacity: 0,
+  stagger: 0.05,
+  duration: 2,
+  delay: 2.4,
+  ease: "power4.out",
+});
+// social icons animation
+gsap.from("#heroSocial a", {
+  x: 100,
+  opacity: 0,
+  delay: 3.1,
+  stagger: 0.05,
+  duration: 1,
+  ease: "power4.out",
+})
+// button animation
+gsap.set(".heroBtn", {
+  x: 100,
+  opacity: 0,
+})
+gsap.to(".heroBtn", {
+  opacity: 1,
+  delay: 3.4,
+  stagger: 0.1,
+  duration: 1,
+  ease: "power4.out",
+  x: 0,
 })
 
-document.fonts.ready.then(() => {
-  // name animation
-  gsap.from(new SplitText("header h1", { type: "chars" }).chars, {
-    x: 100,
-    opacity: 0,
-    stagger: 0.1,
-    duration: 1,
-    ease: "back.out(1.7)",
-    scrollTrigger: {
-      trigger: "h1",
-      toggleActions: "play none none reverse"
-    }
-  });
-  // skill animation
-  gsap.from("header h2", {
-    opacity: 0,
-    x: 100,
-    delay: 1,
-  })
-  // subtitle animation
-  gsap.from(new SplitText("header p", { type: "lines" }).lines, {
-    x: 100,
-    opacity: 0,
-    stagger: 0.3,
-    duration: 1,
-    delay: 1.6,
-    ease: "back.out(1.7)",
-    scrollTrigger: {
-      trigger: "h1",
-      toggleActions: "play none none reverse"
-    }
-  });
-  // social icons animation
-  gsap.from("header .social a", {
-    opacity: 0,
-    delay: 2.7,
-    stagger: 0.2,
-    duration: 0.3,
-    x: 100
-  })
-  // button animation
-  gsap.set("header .button-container a", {
-    opacity: 0,
-    x: 100,
-  })
-  gsap.to("header .button-container a", {
-    opacity: 1,
-    delay: 2.9,
-    stagger: 0.2,
-    duration: 0.3,
-    x: 0
-  })
-});
-
-
-/****************************************
-**** achievements section ****
-****************************************/
-
+/* achievements section
+------------------------------------------------------------*/
 // odometer animation
-document.querySelectorAll('[data-target-number]').forEach(function (el) {
-  var targetStr = (el.getAttribute('data-target-number') || '').trim();
-  if (!targetStr) return;
-  var numOnly = targetStr.replace(/[^0-9.\-]/g, '');
-  var targetVal = parseFloat(numOnly || '0');
-  var prefixMatch = targetStr.match(/^[^\d\-\.]+/);
-  var prefix = prefixMatch ? prefixMatch[0] : '';
-  var suffix = targetStr.replace(/^[^\d\-\.]*/, '').replace(/-?\d[\d,]*(?:\.\d+)?/, '');
-  var startNum = (el.textContent || '').trim().replace(/[^0-9.\-]/g, '');
-  if (startNum === '') startNum = '0';
-  el.textContent = '';
-  if (prefix) {
-    var pre = document.createElement('span');
-    pre.className = 'odo-prefix';
-    pre.textContent = prefix;
-    el.appendChild(pre);
+document.querySelectorAll('[data-target-achivements]').forEach(function (el) {
+  var targetStr = (el.getAttribute('data-target-achivements') || '').trim(); // get target number string
+  if (!targetStr) return; // if empty, return
+  var numOnly = targetStr.replace(/[^0-9.\-]/g, ''); // get only number from string
+  var targetVal = parseFloat(numOnly || '0'); // convert to float
+  var prefixMatch = targetStr.match(/^[^\d\-\.]+/); // get prefix if any (+$, -$, etc)
+  var prefix = prefixMatch ? prefixMatch[0] : ''; // if no prefix, set empty
+  var suffix = targetStr.replace(/^[^\d\-\.]*/, '').replace(/-?\d[\d,]*(?:\.\d+)?/, ''); // get suffix if any (k, M, etc)
+  var startNum = (el.textContent || '').trim().replace(/[^0-9.\-]/g, ''); // get start number from element text
+  if (startNum === '') startNum = '0'; // if no start number, set 0
+  el.textContent = ''; // clear element text
+  if (prefix) { // if prefix, add prefix span
+    var pre = document.createElement('span'); // create prefix span
+    pre.className = 'odo-prefix'; // set class
+    pre.textContent = prefix; // set text
+    el.appendChild(pre); // append to element
   }
-  var numSpan = document.createElement('span');
-  numSpan.className = 'odometer';
-  numSpan.textContent = startNum;
-  el.appendChild(numSpan);
-  if (suffix) {
-    var suf = document.createElement('span');
-    suf.className = 'odo-suffix';
-    suf.textContent = suffix;
-    el.appendChild(suf);
+  var numSpan = document.createElement('span'); // create number span
+  numSpan.className = 'odometer'; // set class
+  numSpan.textContent = startNum; // set start number
+  el.appendChild(numSpan); // append to element
+  if (suffix) { // if suffix, add suffix span
+    var suf = document.createElement('span'); // create suffix span
+    suf.className = 'odo-suffix'; // set class
+    suf.textContent = suffix; // set text
+    el.appendChild(suf); // append to element
   }
-  var odo = new Odometer({
-    el: numSpan,
-    value: parseFloat(startNum),
-    duration: +el.getAttribute('data-duration') || 2000,
-    format: el.getAttribute('data-format') || '(,ddd).dd'
+  var odo = new Odometer({ // odometer init
+    el: numSpan, // element
+    value: parseFloat(startNum), // start number
+    format: el.getAttribute('data-format') || '(,ddd).dd' // number format
   });
 
   // animate when visible
   ScrollTrigger.create({
-    trigger: el,
-    toggleActions: "play none reset none",
-    onEnter: function () {
-      odo.update(targetVal);
+    trigger: el, // when element visible
+    toggleActions: "play none reset none", // play animation when enter, reset when leave back
+    onEnter: function () { // when enter
+      odo.update(targetVal); // animate to target value
     },
-    onLeaveBack: function () {
-      odo.update(startNum);
+    onLeaveBack: function () { // when leave back
+      odo.update(startNum); // reset to start number
     }
   });
 });
 
-// headline animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#achievements h2", { type: "words, chars" }).chars, {
-    stagger: 0.1,
-    opacity: 0.3,
-    scrollTrigger: {
-      trigger: "#achievements h2",
-      start: "top 80%",
-      end: "top 15%",
-      scrub: 1,
-    },
-  });
-});
-
-
-/****************************************
-**** partner section ****
-****************************************/
-
+/* partner section
+------------------------------------------------------------*/
 // logo slide
-var swiper = new Swiper(".logo-slide", {
-  watchSlidesProgress: true,
-  slidesPerView: "auto",
-  loop: true,
-  spaceBetween: 40,
+var swiper = new Swiper(".logo-slide", { // swiper js init
+  slidesPerView: "auto", // automatic number of slider item visible by their width
+  loop: true, // infinite slide
+  spaceBetween: 48, // slide item space
+  speed: 1000,
+  grabCursor: true,
   autoplay: {
     delay: 1000,
     disableOnInteraction: false,
   },
 });
 
-// headline animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#partner h2", { type: "words, chars" }).chars, {
-    stagger: 0.1,
-    opacity: 0.3,
-    scrollTrigger: {
-      trigger: "#partner h2",
-      start: "top 80%",
-      end: "top 15%",
-      scrub: 1,
-    },
-  });
-});
-
-
-/****************************************
-**** exprience section ****
-****************************************/
-
+/* exprience section
+------------------------------------------------------------*/
 // scroll pin
 gsap.matchMedia().add("(min-width: 1024px)", () => {
   ScrollTrigger.create({
-    trigger: "#exprience .main-content",
+    trigger: "#exprienceCardContainer",
     start: "top-=40 top",
     end: "bottom bottom",
-    pin: "#exprience .text-content",
+    pin: "#exprienceHeadingConatiner",
     pinSpacing: false
   })
 })
 
-// headline animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#exprience h2", { type: "words, chars" }).chars, {
-    stagger: 0.1,
-    opacity: 0.3,
-    scrollTrigger: {
-      trigger: "#exprience h2",
-      start: "top 80%",
-      end: "top 5%",
-      scrub: 1,
-    },
-  });
-});
-
-// items scroll animation
-revealSection('#exprience .main-content .content');
-
-
-/****************************************
-**** portfolio section ****
-****************************************/
-
+/* portfolio section
+------------------------------------------------------------*/
 // scroll pin
 gsap.matchMedia().add("(min-width: 1024px)", () => {
   ScrollTrigger.create({
-    trigger: "#portfolio .main-content",
+    trigger: "#portfolioCardContainer",
     start: "top-=40 top",
     end: "bottom bottom",
-    pin: "#portfolio .text-content",
+    pin: "#portfolioHeadingContainer",
     pinSpacing: false
   })
 })
-
-// headilne animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#portfolio h2", { type: "words, chars" }).chars, {
-    stagger: 0.1,
-    opacity: 0.3,
-    scrollTrigger: {
-      trigger: "#portfolio h2",
-      start: "top 80%",
-      end: "top 5%",
-      scrub: 1,
-    },
-  });
-});
 
 // image parallax
-gsap.utils.toArray("#portfolio article").forEach(article => {
-  let img = article.querySelector("img");
-  let container = article.querySelector("div");
+gsap.utils.toArray("#portfolio article").forEach(article => { // paramer is all portfolio card
+  let img = article.querySelector("img"); // get all portfolio image
+  let container = article.querySelector("div"); // get all portfolio image container that makes overfollow and rounded to image
   gsap.to(img, {
-    y: -(img.offsetHeight - container.offsetHeight),
+    y: -(img.offsetHeight - container.offsetHeight), // parallax: image height - conatiner height
     ease: "none",
     scrollTrigger: {
       trigger: article,
@@ -532,91 +552,14 @@ gsap.utils.toArray("#portfolio article").forEach(article => {
   });
 });
 
-// off "a" tag page load
-document.querySelectorAll("#portfolio article a").forEach(link => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
-  });
-});
-
-
-/****************************************
-**** plan section ****
-****************************************/
-
-// scroll pin
-gsap.matchMedia().add("(min-width: 1024px)", () => {
-  ScrollTrigger.create({
-    trigger: "#plan .main-content",
-    start: "top-=40 top",
-    end: "bottom bottom",
-    pin: "#plan .text-content",
-    pinSpacing: false
-  })
-})
-
-// headline animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#plan h2", { type: "words, chars" }).chars, {
-    stagger: 0.1,
-    opacity: 0.3,
-    scrollTrigger: {
-      trigger: "#plan h2",
-      start: "top 80%",
-      end: "top 5%",
-      scrub: 1,
-    },
-  });
-});
-
-// tab logic
-document.querySelectorAll("#plan button").forEach(btn => {
-  btn.addEventListener("click", () => { // when click any tab button
-    document.querySelectorAll("#plan button").forEach(b => {
-      b.classList.remove("bg-primary"); // remove active class from all buttons
-    });
-    btn.classList.add("bg-primary"); // add active class to clicked button
-    document.querySelectorAll("#plan .card").forEach(card => card.classList.add("hidden"));
-    const target = btn.getAttribute("data-target"); // get target card id from button data attribute
-    document.getElementById(target).classList.remove("hidden"); // show target card
-  });
-});
-
-
-/****************************************
-**** testimonial section ****
-****************************************/
-
-// scroll pin
-gsap.matchMedia().add("(min-width: 1024px)", () => {
-  ScrollTrigger.create({
-    trigger: "#testimonial .main-content",
-    start: "top-=40 top",
-    end: "bottom bottom",
-    pin: "#testimonial .text-content",
-    pinSpacing: false
-  })
-})
-
-// headline animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#testimonial h2", { type: "words, chars" }).chars, {
-    stagger: 0.3,
-    opacity: 0.3,
-    scrollTrigger: {
-      trigger: "#testimonial h2",
-      start: "top 80%",
-      end: "top 5%",
-      scrub: 1,
-    },
-  });
-});
-
+/* testimonial section
+------------------------------------------------------------*/
 // slide logic
 var swiper = new Swiper(".testimonial-slide", {
-  effect: "cards",
-  grabCursor: true,
-  loop: true,
+  effect: "cards", // card effect
+  grabCursor: true, // cursor: grab
+  loop: true, // infinite
+  speed: 1000,
   spaceBetween: 40,
   autoplay: {
     delay: 2000,
@@ -624,113 +567,148 @@ var swiper = new Swiper(".testimonial-slide", {
   },
 });
 
-
-/****************************************
-**** tech-stack section ****
-****************************************/
-
+/* tech stack section
+------------------------------------------------------------*/
 // scroll pin
 gsap.matchMedia().add("(min-width: 1024px)", () => {
   ScrollTrigger.create({
-    trigger: "#tech-stack .main-content",
+    trigger: "#stackCardContainer",
     start: "top-=40 top",
     end: "bottom bottom",
-    pin: "#tech-stack .text-content",
+    pin: "#stackHeadingContainer",
     pinSpacing: false
   })
 })
 
-// headline animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#tech-stack h2", { type: "words, chars" }).chars, {
-    stagger: 0.1,
-    opacity: 0.3,
-    scrollTrigger: {
-      trigger: "#tech-stack h2",
-      start: "top 80%",
-      end: "top 5%",
-      scrub: 1,
+// skill inear progress bar
+const bars = document.querySelectorAll(".skill-bar");
+  bars.forEach((bar) => {
+    gsap.fromTo(bar, {
+      width: "0%"
     },
-  });
+    {
+      width: bar.dataset.skillBarTarget + "%",
+      duration: 3,
+      delay: 0.5,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: bar,
+        start: "top 100%",
+        toggleActions: "play none none reverse",
+      },
+    }
+  );
 });
 
-// items scroll animation
-revealSection('#tech-stack .main-content div');
+// skill percentage
+const skillPercentageTarget = document.querySelectorAll("[data-skill-percentage-target]"); // get all skill percentage numbers
+  skillPercentageTarget.forEach(el => {
+    const target = +el.getAttribute("data-skill-percentage-target");
+    gsap.fromTo(el, {
+      innerText: 0
+    }, 
+    {
+      innerText: target,
+      duration: 3,
+      delay: 0.5,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top 100%",
+        toggleActions: "play none none reverse",
+      },
+      snap: {
+        innerText: 1, // 1 unit increment
+      },
+      onUpdate: function() {
+        el.innerText = Math.round(el.innerText) + "%";
+      }
+    }
+  );
+});
 
-
-/****************************************
-**** contact section ****
-****************************************/
-
+/* contact section
+------------------------------------------------------------*/
 // save draft data to local storage
-document.querySelector("form a").addEventListener("click", function (e) {
-  e.preventDefault();
-  const inputs = document.querySelectorAll("form input, form textarea");
-  const data = {};
+let saveDraft = document.querySelector("#saveDraft")
+// when click "save draft" button
+saveDraft.addEventListener("click", function (e) {
+  e.preventDefault(); // off page load
+  const inputs = document.querySelectorAll("form input, form textarea"); // get all input
+  const data = {}; // initial data array
   inputs.forEach((field, i) => {
-    const key = field.placeholder || `field${i}`;
-    data[key] = field.value;
+    const key = field.placeholder || `field${i}`; // get array key from input placeholder or index number like: 0, 1, 2..
+    data[key] = field.value; //get array value
   });
-  localStorage.setItem("contactDraft", JSON.stringify(data));
-  document.getElementById("formPopup").classList.remove("hidden");
-  document.getElementById("formPopup").classList.add("flex");
+  let formDraftPopUp = document.querySelector("#formDraftPopUp"); // pop up modal
+  localStorage.setItem("contactDraft", JSON.stringify(data)); // save data as "contactDraft" varriable name in localstorage
+  // open popup
+  formDraftPopUp.classList.remove("hidden");
+  formDraftPopUp.classList.add("flex");
+  // animation
+    gsap.set(formDraftPopUp, {
+    opacity: 0,
+    backdropFilter: "blur(0px)"
+  });
+  gsap.to(formDraftPopUp, {
+    opacity: 1,
+    backdropFilter: "blur(20px)",
+    duration: 0.5,
+    ease: "power2.out"
+  });
 });
-document.querySelector("#formPopup button").addEventListener("click", () => {
-  document.getElementById("formPopup").classList.add("hidden");
-  document.getElementById("formPopup").classList.remove("flex");
+// when close popup
+document.querySelector("#formDraftPopUp button").addEventListener("click", () => {
+  // animtion
+  gsap.to(formDraftPopUp, {
+    opacity: 0,
+    backdropFilter: "blur(0px)",
+    duration: 0.4,
+    ease: "power2.in",
+    onComplete: () => {
+      // invisible
+      formDraftPopUp.classList.add("hidden");
+      formDraftPopUp.classList.remove("flex");
+    }
+  });
 });
 
-// apply draft data from local storage
-const saved = localStorage.getItem("contactDraft");
-if (saved) {
-  const data = JSON.parse(saved);
-  const inputs = document.querySelectorAll("form input, form textarea");
+// get draft data from local storage
+const isFormDataSaved = localStorage.getItem("contactDraft");
+if (isFormDataSaved) {
+  const data = JSON.parse(isFormDataSaved); // import data
+  const inputs = document.querySelectorAll("form input, form textarea"); // get input fields
   inputs.forEach((field, i) => {
-    const key = field.placeholder || `field${i}`;
-    if (data[key]) field.value = data[key];
+    const key = field.placeholder || `field${i}`; // match array jey
+    if (data[key]) field.value = data[key]; // match array value
   });
 }
 
-// headline animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#contact h2", { type: "words, chars" }).chars, {
-    stagger: 0.1,
-    opacity: 0.3,
-    scrollTrigger: {
-      trigger: "#contact h2",
-      start: "top 80%",
-      end: "top 15%",
-      scrub: 1,
-    },
-  });
-});
+// form send to emailjs
+// config
+// const emailjsPublicKey = "fw1Kyv4KqIc1NfcYf";
+// const emailjsServiceId = "service_zxf6x98";
+// const emailjsTemplateId = "template_zweyvqb";
+const emailjsPublicKey = "EMAIL_JS_PUBLIC_KEY_HERE";
+const emailjsServiceId = "EMAIL_JS_SERVICE_ID_HERE";
+const emailjsTemplateId = "EMAIL_JS_TEMPLATE_ID_HERE";
 
-// items scroll animation
-revealSection('form input, form textarea');
-
-
-// form send to EmailJS
-// emailjs varriable
-const emailjsPublicKey = "YOUR_EMAIL_JS_PUBLIC_KEY_HERE";
-const emailjsServiceId = "YOUR_EMAIL_JS_SERVICE_ID_HERE";
-const emailjsTemplateId = "YOUR_EMAIL_JS_TEMPLATE_ID_HERE";
-
-// Initialize emailjs
+// initialize
 (function () {
-    emailjs.init(emailjsPublicKey);
+  emailjs.init(emailjsPublicKey)
 })();
 
+const submitBtn = document.querySelector("form button[type='submit']"); // get submit btn
 // when click to submit button
-document.querySelector("form").addEventListener('submit', function (event) {
-  // disable submit button
-  const submitBtn = event.target.querySelector("button[type='submit']");
-  submitBtn.disabled = true;
-  submitBtn.classList.add("opacity-50");
-  submitBtn.style.cursor = "not-allowed";
-  submitBtn.querySelector("span:nth-of-type(1)").textContent = "Sending Data...";
-  // off page load
-  event.preventDefault();
-  // get data from html
+submitBtn.addEventListener('click', function (e) {
+  submitBtn.disabled = true; // not clickable
+  submitBtn.style.opacity = "0.5"; // opacity styling
+  submitBtn.style.cursor = "not-allowed"; // cursor styling
+  submitBtn.querySelector("span:nth-of-type(1)").textContent = "Sending..."; // button text when submit processing
+
+  e.preventDefault(); // off page load
+
+  // make array for get input fields data from html
   const formData = {
     to_name: "Admin",
     user_name: document.getElementById('userName').value,
@@ -739,60 +717,99 @@ document.querySelector("form").addEventListener('submit', function (event) {
     user_phone: document.getElementById('userPhone').value,
     user_message: document.getElementById('userMessage').value,
   };
-  // send
+  // send to emailjs
   emailjs.send(emailjsServiceId, emailjsTemplateId, formData).then(function (res) {
     // success responce
-    // show pop up
-    document.getElementById("formSubmitSuccess").classList.remove("hidden");
-    document.getElementById("formSubmitSuccess").classList.add("flex");
-    document.querySelector("#formSubmitSuccess button").addEventListener("click", () => {
-      document.getElementById("formSubmitSuccess").classList.add("hidden");
-      document.getElementById("formSubmitSuccess").classList.remove("flex");
+    let formSuccessPopUp = document.querySelector("#formSuccessPopUp");
+    // pop up modal open
+    // visible
+    formSuccessPopUp.classList.remove("hidden");
+    formSuccessPopUp.classList.add("flex");
+    // animation
+    gsap.set(formSuccessPopUp, {
+      opacity: 0,
+      backdropFilter: "blur(0px)"
     });
-    // form reset
-    document.querySelector("form").reset();
-    // default submit button
+    gsap.to(formSuccessPopUp, {
+      opacity: 1,
+      backdropFilter: "blur(20px)",
+      duration: 0.5,
+      ease: "power2.out"
+    });
+    // close popup
+    formSuccessPopUp.querySelector("button").addEventListener("click", () => {
+      // animtion
+      gsap.to(formSuccessPopUp, {
+        opacity: 0,
+        backdropFilter: "blur(0px)",
+        duration: 0.4,
+        ease: "power2.in",
+        onComplete: () => {
+          // invisible
+          formSuccessPopUp.classList.add("hidden");
+          formSuccessPopUp.classList.remove("flex");
+          // default src
+          formSuccessPopUp.querySelector("iframe").src = "about:blank";
+        }
+      });
+    });
+    document.querySelector("form").reset(); // input fields reset in client side
+    // button style: default
     submitBtn.disabled = false;
-    submitBtn.classList.remove("opacity-50");
+    submitBtn.style.opacity = "1";
     submitBtn.style.cursor = "pointer";
     submitBtn.querySelector("span:nth-of-type(1)").textContent = "Send Another";
   })
   // error responce
   .catch(function (error) {
-    alert('Failed to submit: ' + error);
+    console.log("Error to send mesage: " + error);
+    // button style
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = "1";
+    submitBtn.style.cursor = "pointer";
+    submitBtn.querySelector("span:nth-of-type(1)").textContent = "Try Again";
+    // pop up modal
+    let formErrorPopUp = document.querySelector("#formErrorPopUp");
+    // visible
+    formErrorPopUp.classList.remove("hidden");
+    formErrorPopUp.classList.add("flex");
+    // animation
+    gsap.set(formErrorPopUp, {
+      opacity: 0,
+      backdropFilter: "blur(0px)"
+    });
+    gsap.to(formErrorPopUp, {
+      opacity: 1,
+      backdropFilter: "blur(20px)",
+      duration: 0.5,
+      ease: "power2.out"
+    });
+    // close popup
+    formErrorPopUp.querySelector("button").addEventListener("click", () => {
+    // animtion
+    gsap.to(formErrorPopUp, {
+      opacity: 0,
+      backdropFilter: "blur(0px)",
+      duration: 0.4,
+      ease: "power2.in",
+      onComplete: () => {
+        // invisible
+        formErrorPopUp.classList.add("hidden");
+        formErrorPopUp.classList.remove("flex");
+        // default src
+      }});
+    });
   });
 });
 
-
-/****************************************
-**** faq section ****
-****************************************/
-
-// scroll pin
-gsap.matchMedia().add("(min-width: 1024px)", () => {
-  ScrollTrigger.create({
-    trigger: "#faq .main-content",
-    start: "top-=40 top",
-    end: "bottom bottom",
-    pin: "#faq .text-content",
-    pinSpacing: false
-  })
-})
-
-// headline animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#faq h2", { type: "words, chars" }).chars, {
-    stagger: 0.1,
-    opacity: 0.3,
-    scrollTrigger: {
-      trigger: "#faq h2",
-      start: "top 80%",
-      end: "top 5%",
-      scrub: 1,
-    },
-  });
+// copy email
+copyElEmail.addEventListener("click", () => { // when click
+  const textToCopy = copyElEmail.textContent.trim(); // get email from html
+  navigator.clipboard.writeText(textToCopy); // make copy
 });
 
+/* faq section
+------------------------------------------------------------*/
 // faq toggle
 document.querySelectorAll(".faq-question").forEach((question) => {
   question.addEventListener("click", () => { // when click to any faq
@@ -800,8 +817,8 @@ document.querySelectorAll(".faq-question").forEach((question) => {
     const icon = question.querySelector(".icon"); // get icon
     // show answer
     if (answer.classList.contains("max-h-[200px]")) {
-      answer.classList.remove("max-h-[200px]", "py-4");
-      icon.textContent = "+";
+      answer.classList.remove("max-h-[200px]", "py-4"); // remove height amd padding
+      icon.textContent = "+"; // set + icon
       return;
     }
     // hide all other answers
@@ -815,13 +832,7 @@ document.querySelectorAll(".faq-question").forEach((question) => {
   });
 });
 
-// items scroll animation
-revealSection('#faq .faq-item');
-
-
-/****************************************
-**** footer ****
-****************************************/
-
+/* footer
+------------------------------------------------------------*/
 // dynamic year
 document.querySelector("#year").innerHTML = new Date().getFullYear();
