@@ -35,11 +35,7 @@
   src: url("../fonts/FunnelDisplay-SemiBold.ttf") format("truetype");
   font-weight: 600;
 }
+
 body {
   font-family: "FunnelDisplay", sans-serif;
-}
-
-/* odometer animation duration */
-.odometer.odometer-auto-theme .odometer-ribbon-inner, .odometer.odometer-theme-default .odometer-ribbon-inner {
-  @apply !duration-3000
 }

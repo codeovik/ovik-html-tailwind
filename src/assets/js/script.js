@@ -203,12 +203,10 @@ document.querySelectorAll(".text-scrub").forEach(el => {
 const goTopBtn = document.getElementById("goTopBtn"); // get go top element
 const scrollProgress = document.getElementById("scrollProgress"); // get scroll progress
 lenis.on("scroll", () => {
-  const scrollTop = lenis.scroll; // smooth scroll
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight; // top to present total height
-  scrollProgress.style.height = (scrollTop / docHeight) * 100 + "%"; // scroll progress
-  // when scroll greater than 250px from top: show
-  if (scrollTop > 250) {
-    goTopBtn.classList.remove("opacity-0", "translate-y-10", "pointer-events-none"); // tailwind css class
+  const scrolled = lenis.scroll; // scrolled from y axis
+  // when scroll greater than 250px from top: hide
+  if (scrolled > 250) {
+    goTopBtn.classList.remove("opacity-0", "translate-y-10", "pointer-events-none");
     goTopBtn.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
   }
   // when scroll less than 250px from top: hide
@@ -363,16 +361,19 @@ document.getElementById("menuBar").addEventListener("wheel", (e) => {
 // active link
 let links = document.querySelectorAll("nav ul li a"); // get all nav links
 const sections = document.querySelectorAll("section, header"); // get all sections
-window.addEventListener('scroll', () => { // when scroll
-  let scrollPos = window.scrollY + 150; // add offset to scroll position
+
+window.addEventListener('scroll', () => {
+  let scrollPos = window.scrollY + 150;
   sections.forEach((section, index) => {
-    if(scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) { // when scroll position is in section
-      links.forEach(link => link.classList.remove('active-nav-links')); // remove active class from all links
-      // links[index].classList.add('active-nav-links'); // add active class to current link
-      links[index].classList.add('text-primary'); // style
+    if(scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+      // remove 'text-primary' from all links
+      links.forEach(link => link.classList.remove('text-primary'));
+      // add 'text-primary' to current link
+      links[index].classList.add('text-primary');
     }
   });
 });
+
 
 // when nav link e click, reverse animation
 links.forEach(link => {
@@ -554,15 +555,15 @@ gsap.utils.toArray("#portfolio article").forEach(article => { // paramer is all 
 
 /* testimonial section
 ------------------------------------------------------------*/
-// slide logic
-var swiper = new Swiper(".testimonial-slide", {
-  effect: "cards", // card effect
-  grabCursor: true, // cursor: grab
-  loop: true, // infinite
+// slide
+var swiper = new Swiper(".review-slide", {
+  slidesPerView: "auto",
+  spaceBetween: 1,
+  loop: true,
   speed: 1000,
-  spaceBetween: 40,
+  grabCursor: true,
   autoplay: {
-    delay: 2000,
+    delay: 1000,
     disableOnInteraction: false,
   },
 });

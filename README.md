@@ -1,13 +1,16 @@
-I maked this portfolio theme using tailwind css cli.
+![website screenshort](https://ovikbiswas.wordpress.com/wp-content/uploads/2025/10/ovik-portfolio-html-tailwindcss.png)
+
+OVIK is a Personal Portfolio website SASS template made for selling on Themeforest. Made with HTML and Tailwind CSS CLI.
 
 ### Links:
-[https://codeovik.github.io/ovik-portfolio-html-2/src](https://codeovik.github.io/ovik-portfolio-html-2/src)
-[https://ovik-html-tailwind.netlify.app](https://ovik-html-tailwind.netlify.app)
+[https://codeovik.github.io/ovik-html-tailwind/src](https://codeovik.github.io/ovik-html-tailwind/src)
+[https://ovik-html-tailwind.vercel.app](https://ovik-html-tailwind.vercel.app)
 
 ### Project timeline:
 24 sep, 2025 - v1 released in github
 28 September - 11 October, 2025 - Review for Themeforest and Hard Rejected
 12 October, 2025 - v2 start
+28 October, 2025 - v2 end
 
 ### To run this on locally:
 1. Clone the repository and install dependencies
