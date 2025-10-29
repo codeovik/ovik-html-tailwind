@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <!-- Viewport meta -->
@@ -15,27 +15,27 @@
         <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/png">
 
         <!-- Stylesheets -->
-        <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="./assets/css/swiper.min.css">
         <link rel="stylesheet" href="./assets/css/fontawesome.min.css">
-        <link rel="stylesheet" href="./assets/css/odometer-theme-default.min.css">
+        <link rel="stylesheet" href="./assets/css/odometer.min.css">
         <link rel="stylesheet" href="./assets/css/output.tailwind.css">
     </head>
     <body class="scroll-smooth overflow-x-hidden text-black dark:text-white bg-light-bg dark:bg-dark-bg selection:bg-primary selection:text-brand-contrast [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-primary/50 [&::-webkit-scrollbar-thumb]:rounded-full">
 
         <!-- Cursor follower -->
-        <div id="cursorFollower" class="pointer-events-none items-center justify-center h-4 aspect-square rounded-full fixed z-4 top-0 left-0 hidden bg-black dark:bg-white"></div>
+        <div id="cursorFollower" class="pointer-events-none items-center justify-center h-4 aspect-square rounded-full fixed z-105 top-0 left-0 hidden bg-black dark:bg-white"></div>
 
         <!-- Background cursor follower -->
         <div id="bgCursor" class="h-150 aspect-square -z-1 blur-[90px] rounded-[25%] top-0 left-0 fixed pointer-events-none dark:bg-primary/20 bg-primary/40"></div>
 
         <!-- Go to top button -->
-        <button id="goTopBtn" class="cursor-colorfull dark:bg-light-element dark:hover:bg-light-element-hover bg-dark-element hover:bg-dark-element-hover fixed z-1 cursor-pointer transition-all flex items-end h-12 aspect-square bottom-5 right-10 md:right-20 rounded-full overflow-hidden gotop opacity-0 translate-y-10 pointer-events-none">
+        <button id="goTopBtn" class="cursor-colorfull dark:bg-white bg-black fixed z-100 cursor-pointer transition-all flex items-end h-12 aspect-square bottom-5 right-10 md:right-20 rounded-full overflow-hidden gotop opacity-0 translate-y-10 pointer-events-none">
             <svg class="absolute scale-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 dark:fill-black fill-white transition-all" xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 -960 960 960"><path d="M440-80v-647L256-544l-56-56 280-280 280 280-56 57-184-184v647h-80Z"/></svg>
         </button>
 
         <!-- Contact form draft save successfull pop up message -->
-        <div id="formDraftPopUp" class="hidden fixed inset-0 items-center justify-center bg-black/50 backdrop-blur-2xl z-3">
-            <div class="bg-light-element dark:bg-dark-element w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center">
+        <div id="formDraftPopUp" class="hidden fixed inset-0 items-center justify-center bg-black/50 backdrop-blur-2xl z-104">
+            <div class="bg-white dark:bg-black w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center">
                 <h3 class="text-xl md:text-4xl font-semibold">Draft Saved Successfully</h3>
                 <p class="text-sm md:text-base text-left mt-3">Your contact form data has been saved in local storage. You can see your data and submit anytime after refresh the page or come back later.</p>
                 <button class="cursor-black-white mt-8 px-6 py-3 bg-primary hover:bg-primary/70 transition-all rounded-full cursor-pointer text-brand-contrast flex gap-1 mx-auto font-semibold">
@@ -46,8 +46,8 @@
         </div>
 
         <!-- Contact form submit successfull pop up message -->
-        <div id="formSuccessPopUp" class="hidden fixed inset-0 items-center justify-center bg-black/50 backdrop-blur-2xl z-3">
-            <div class="bg-light-element dark:bg-dark-element w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center">
+        <div id="formSuccessPopUp" class="hidden fixed inset-0 items-center justify-center bg-black/50 backdrop-blur-2xl z-104">
+            <div class="bg-lwhite dark:bg-black w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center">
                 <h3 class="text-xl md:text-4xl font-semibold">Form submition Successfull</h3>
                 <p class="text-sm md:text-base text-left mt-3">Your data has sent to me. I will mail you soon. Thanks!</p>
                 <button class="cursor-black-white mt-12 px-6 py-3 bg-primary hover:bg-primary/70 transition-all rounded-full cursor-pointer text-brand-contrast flex gap-1 mx-auto font-semibold">
@@ -58,8 +58,8 @@
         </div>
 
         <!-- Contact form submit error pop up message -->
-        <div id="formErrorPopUp" class="hidden fixed inset-0 items-center justify-center bg-black/50 backdrop-blur-2xl z-3">
-            <div class="bg-light-element dark:bg-dark-element w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center">
+        <div id="formErrorPopUp" class="hidden fixed inset-0 items-center justify-center bg-black/50 backdrop-blur-2xl z-104">
+            <div class="bg-white dark:bg-black w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center">
                 <h3 class="text-xl md:text-4xl font-semibold">Form submition Error</h3>
                 <p class="text-sm md:text-base text-left mt-3">Your data hasn't sent to me. After buy this template, you will find how to setup for send data using Email JS. With Email JS, you not need to any backend server.</p>
                 <button class="cursor-black-white mt-8 px-6 py-3 bg-primary hover:bg-primary/70 transition-all rounded-full cursor-pointer text-brand-contrast flex gap-1 mx-auto font-semibold">
@@ -70,7 +70,7 @@
         </div>
 
         <!-- Pop up youtube video modal -->
-        <div id="popUpVideoModal" class="fixed inset-0 items-center justify-center bg-white/70 dark:bg-black/70 z-3 hidden">
+        <div id="popUpVideoModal" class="fixed inset-0 items-center justify-center bg-white/70 dark:bg-black/70 z-104 hidden">
             <div class="space-y-3 w-[90%] lg:w-full md:max-w-200">
                 <div class="flex justify-end">
                     <button class="cursor-black-white cursor-pointer">
@@ -78,7 +78,7 @@
                     </button>
                 </div>
                 <div class="overflow-hidden rounded-xl">
-                    <iframe src="about:blank" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full aspect-video rounded-xl md:rounded-3xl border-0"></iframe>   
+                    <iframe src="about:blank" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full aspect-video rounded-xl md:rounded-3xl border-0"></iframe>   
                 </div>
             </div>
         </div>
@@ -91,14 +91,14 @@
                 <img src="./assets/images/logo-light.png" alt="logo" class="h-12 cursor-pointer dark:hidden">
             </a>
             <!-- Hamburger menu button -->
-            <button id="toggleMenu" class="cursor-colorfull h-12 aspect-square fixed right-10 md:right-18 z-3 dark:bg-light-element dark:hover:bg-light-element-hover bg-dark-element hover:bg-dark-element-hover transition-all rounded-full cursor-pointer">
+            <button id="toggleMenu" class="cursor-colorfull h-12 aspect-square fixed right-10 md:right-18 z-103 dark:bg-white bg-black transition-all rounded-full cursor-pointer">
                 <span class="h-[3px] w-[60%] rounded-full bg-white dark:bg-black absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
                 <span class="h-[3px] w-[60%] rounded-full bg-white dark:bg-black absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
             </button>
             <!-- Menu bar conatiner - blur body when menu open -->
-            <div id="menuContainer" class="fixed cursor-pointer top-0 left-0 h-dvh w-full backdrop-blur-0 pointer-events-none z-1"></div>
+            <div id="menuContainer" class="fixed cursor-pointer top-0 left-0 h-dvh w-full backdrop-blur-0 pointer-events-none z-101"></div>
             <!-- Menu bar -->
-            <div id="menuBar" class="fixed top-0 -right-full h-dvh bg-white dark:bg-[#030303] min-[450px]:w-100 w-8/10 z-2 py-12 px-6 md:p-12 overflow-y-scroll [&::-webkit-scrollbar]:w-0.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-primary/0 [&::-webkit-scrollbar-thumb]:rounded-full">
+            <div id="menuBar" class="fixed top-0 -right-full h-dvh bg-white dark:bg-[#030303] min-[450px]:w-100 w-8/10 z-102 py-12 px-6 md:p-12 overflow-y-scroll [&::-webkit-scrollbar]:w-0.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-primary/0 [&::-webkit-scrollbar-thumb]:rounded-full">
                 <!-- Dark/Light mode toggle button -->
                 <button id="darkToggle" class="cursor-colorfull aspect-square rounded-full cursor-pointer bg-black dark:bg-white hover:bg-black/70 dark:hover:bg-white/70 h-12 transition-all p-3 flex items-center justify-center transform -translate-y-5">
                     <svg class="fill-black -rotate-35 aspect-square hidden w-full dark:block scale-120 md:scale-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576C388.8 576 451.3 548.8 497.3 504.6C504.6 497.6 506.7 486.7 502.6 477.5C498.5 468.3 488.9 462.6 478.8 463.4C473.9 463.8 469 464 464 464C362.4 464 280 381.6 280 280C280 207.9 321.5 145.4 382.1 115.2C391.2 110.7 396.4 100.9 395.2 90.8C394 80.7 386.6 72.5 376.7 70.3C358.4 66.2 339.4 64 320 64z"/></svg>
@@ -143,19 +143,19 @@
                 <p id="manuSocialMediaTitle" class="mt-6 before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full">My social links</p>
                 <!-- Social items -->
                 <div id="manuSocialMedia" class="flex gap-2">
-                    <a href="https://youtube.com" target="_blank" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-11 md:h-12 transition-colors aspect-square flex justify-center items-center">
+                    <a href="#" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-11 md:h-12 transition-colors aspect-square flex justify-center items-center">
                        <i class="fa-brands fa-youtube"></i>
                     </a>
-                    <a href="https://facebook.com" target="_blank" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-11 md:h-12 transition-colors aspect-square flex justify-center items-center">
+                    <a href="#" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-11 md:h-12 transition-colors aspect-square flex justify-center items-center">
                        <i class="fa-brands fa-facebook"></i>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-11 md:h-12 transition-colors aspect-square flex justify-center items-center">
+                    <a href="#" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-11 md:h-12 transition-colors aspect-square flex justify-center items-center">
                        <i class="fa-brands fa-linkedin"></i>
                     </a>
-                    <a href="https://instagram.com" target="_blank" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-11 md:h-12 transition-colors aspect-square flex justify-center items-center">
+                    <a href="#" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-11 md:h-12 transition-colors aspect-square flex justify-center items-center">
                        <i class="fa-brands fa-instagram"></i>
                     </a>
-                    <a href="https://upwork.com" target="_blank" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-11 md:h-12 transition-colors aspect-square flex justify-center items-center">
+                    <a href="#" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-11 md:h-12 transition-colors aspect-square flex justify-center items-center">
                        <i class="fa-brands fa-upwork"></i>
                     </a>
                 </div>
@@ -163,13 +163,13 @@
                 <p id="menuContactTitle" class="mt-6 before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full">Contact me</p>
                 <!-- Contact items -->
                 <div id="menuContact" class="flex flex-col gap-2">
-                    <a href="mailto:hello@codeovik.com" class="text-xl cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all">
+                    <a href="mailto:hello@codeovik.com" class="cursor-colorfull text-xl cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all">
                         hello@codeovik.com
                     </a>
-                    <a href="tel:+0123456789" class="text-xl cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all">
+                    <a href="tel:+0123456789" class="cursor-colorfull text-xl cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all">
                         +0123456789
                     </a>
-                    <a href="https://maps.google.com" class="text-xl cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all">
+                    <a href="https://maps.google.com" class="cursor-colorfull text-xl cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all">
                         Faridpur, Bangladesh
                     </a>
                 </div>
@@ -179,17 +179,16 @@
         <!-- Hero section -->
         <header id="hero" class="max-w-[1600px] px-6 lg:px-12 mx-auto grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6 mb-18 md:mb-36 items-center">
             <!-- Image -->
-            <!-- <img data-tilt data-tilt-glare data-tilt-speed="50" src="./assets/images/hero.jpg" alt="hero" class="rounded-2xl md:rounded-3xl"> -->
-            <img data-tilt data-tilt-glare data-tilt-speed="50" src="./assets/images/portfolio-ai-image-generator.jpg" alt="hero" class="rounded-2xl md:rounded-3xl">
+            <img data-tilt data-tilt-glare data-tilt-speed="50" src="./assets/images/hero.jpg" alt="hero" class="rounded-2xl md:rounded-3xl">
             <div class="space-y-5 lg:space-y-5 overflow-hidden">
                 <!-- Name -->
                 <h1 id="heroTitle" class="font-medium text-4xl md:text-7xl lg:text-[80px]">
-                    <span class="text-black/70 dark:text-white/70">Hi, I'm </span>
+                    <span class="text-light-secondary-text dark:text-dark-secondary-text">Hi, I'm </span>
                     <span class="">Ovik Biswas</span>
                 </h1>
                 <!-- Typewriter effect -->
                 <h2 id="typewriterContainer" class="text-3xl md:text-5xl lg:text-6xl">
-                    <span class="text-black/70 dark:text-white/70">A skilled </span>
+                    <span class="text-light-secondary-text dark:text-dark-secondary-text">A skilled </span>
                     <span id="typewriter"></span>
                 </h2>
                 <div id="typed-strings" class="hidden">
@@ -200,24 +199,24 @@
                     <p>Digital Marketor</p>
                 </div>
                 <!-- Description -->
-                <p id="heroDescription" class="lg:text-lg md:text-xl text-base">
+                <p id="heroDescription" class="lg:text-lg md:text-xl text-base font-light">
                     A professional and skilled full stack developer specialized on Tailwind CSS, JavaScript, Typescript, ReactJS, NextJS, ExpressJS, MongoDB with several years of experience to create modern.
                 </p>
                 <!-- Social items -->
                 <div id="heroSocial" class="flex gap-2">
-                    <a href="https://youtube.com" target="_blank" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-12 transition-colors aspect-square flex justify-center items-center">
+                    <a href="#" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-12 transition-colors aspect-square flex justify-center items-center">
                        <i class="fa-brands fa-youtube"></i>
                     </a>
-                    <a href="https://facebook.com" target="_blank" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-12 transition-colors aspect-square flex justify-center items-center">
+                    <a href="#" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-12 transition-colors aspect-square flex justify-center items-center">
                        <i class="fa-brands fa-facebook"></i>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-12 transition-colors aspect-square flex justify-center items-center">
+                    <a href="#" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-12 transition-colors aspect-square flex justify-center items-center">
                        <i class="fa-brands fa-linkedin"></i>
                     </a>
-                    <a href="https://instagram.com" target="_blank" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-12 transition-colors aspect-square flex justify-center items-center">
+                    <a href="#" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-12 transition-colors aspect-square flex justify-center items-center">
                        <i class="fa-brands fa-instagram"></i>
                     </a>
-                    <a href="https://upwork.com" target="_blank" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-12 transition-colors aspect-square flex justify-center items-center">
+                    <a href="#" class="cursor-black-white text-xl hover:text-brand-contrast dark:bg-white/10 bg-black/10 hover:bg-primary rounded-full h-12 transition-colors aspect-square flex justify-center items-center">
                        <i class="fa-brands fa-upwork"></i>
                     </a>
                 </div>
@@ -241,7 +240,7 @@
             <div class="max-w-[1600px] mx-auto">
                 <!-- Title -->
                 <h2 class="lg:w-[800px] mx-auto mb-6 overflow-hidden">
-                    <span class="block md:inline before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full text-sm md:text-base pr-20 md:bottom-3 font-light">
+                    <span class="anim-in-up block md:inline before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full text-sm md:text-base pr-20 md:bottom-3 font-light">
                         Our Achievements
                     </span>
                     <span class="text-slide text-scrub md:text-5xl text-3xl">
@@ -251,28 +250,28 @@
                 <!-- Items -->
                 <div class="flex flex-col lg:flex-row items-stretch">
                     <!-- Devider -->
-                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="flex flex-col flex-1 py-6 gap-1 items-center justify-center">
-                        <p class="text-7xl lg:text-8xl text-center" data-target-achivements="95%">0%</p>
+                        <p class="anim-in-up-group text-7xl lg:text-8xl text-center" data-target-achivements="95%">0%</p>
                         <p class="anim-in-up-group text-3xl font-light text-center">Success Rate</p>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="flex flex-col flex-1 py-6 gap-1 items-center justify-center">
-                        <p class="text-7xl lg:text-8xl text-center" data-target-achivements="800+">0+</p>
+                        <p class="anim-in-up-group text-7xl lg:text-8xl text-center" data-target-achivements="800+">0+</p>
                         <p class="anim-in-up-group text-3xl font-light text-center">Satisfied Clients</p>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="flex flex-col flex-1 py-6 gap-1 items-center justify-center">
-                        <p class="text-7xl lg:text-8xl text-center" data-target-achivements="800+">0+</p>
+                        <p class="anim-in-up-group text-7xl lg:text-8xl text-center" data-target-achivements="800+">0+</p>
                         <p class="anim-in-up-group text-3xl font-light text-center">Satisfied Clients</p>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                 </div>
             </div>
         </section>
@@ -282,7 +281,7 @@
             <div class="max-w-[1600px] mx-auto">
                 <!-- Title -->
                 <h2 class="lg:w-[800px] mx-auto mb-6 overflow-hidden">
-                    <span class="block md:inline before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full text-sm md:text-base pr-20 md:bottom-3 font-light">
+                    <span class="anim-in-up block md:inline before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full text-sm md:text-base pr-20 md:bottom-3 font-light">
                         Our Clients & Partners
                     </span>
                     <span class="text-slide text-scrub md:text-5xl text-3xl">
@@ -307,6 +306,70 @@
             </div>
         </section>
 
+        <!-- Experience section -->
+        <section id="experience" class="w-full px-6 lg:px-12 py-12 md:py-18 bg-light-bg dark:bg-dark-bg">
+            <div class="max-w-[1600px] mx-auto overflow-hidden grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6">
+                <!-- Title -->
+                <div id="exprienceHeadingConatiner" class="h-max overflow-hidden">
+                    <h2 id="exprienceHeading" class="text-scrub text-slide md:text-7xl text-5xl text-center lg:text-left font-medium">
+                        My Work Experience
+                    </h2>
+                    <p class="anim-in-up mt-3 text-base md:text-2xl lg:text-lg text-light-secondary-text dark:text-dark-secondary-text">
+                        With years of hands-on experience, I have collaborated with brands worldwide, building responsive, user-friendly, and scalable web solutions.
+                    </p>
+                </div>
+                <!-- Items -->
+                <div id="exprienceCardContainer" class="space-y-6 md:space-y-12">
+                    <!-- Devider -->
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
+                    <!-- Item -->
+                    <div class="space-y-2 md:space-y-5 lg:space-y-2 px-3 md:px-6">
+                        <div class="anim-in-up flex justify-between items-center">
+                            <h4 class="text-2xl md:text-5xl">Game Developer</h4>
+                            <p class="rounded-full h-max inline text-xs md:text-xl lg:text-base whitespace-nowrap bg-black/10 dark:bg-white/10 px-3 md:px-6 py-1 md:py-2">2020 - 2022</p>
+                        </div>
+                    <p class="anim-in-up text-base md:text-2xl text-light-secondary-text dark:text-dark-secondary-text">In the <a href="#" class="cursor-colorfull text-xl font-bold cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all text-black dark:text-white">Vuda Magi</a> company</p>
+                    <p class="anim-in-up font-light mt-3 text-sm md:text-xl text-light-secondary-text dark:text-dark-secondary-text">I was involved in creating 2D and 3D game design and senior lead programmer in GD Script and For database, I used MongoDB. in Godot Game Engine.</p>
+                    </div>
+                    <!-- Devider -->
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
+                    <!-- Item -->
+                    <div class="space-y-2 md:space-y-5 lg:space-y-2 px-3 md:px-6">
+                        <div class="anim-in-up flex justify-between items-center">
+                            <h4 class="text-2xl md:text-5xl">Frond End Developer</h4>
+                            <p class="rounded-full h-max inline text-xs md:text-xl lg:text-base whitespace-nowrap bg-black/10 dark:bg-white/10 px-3 md:px-6 py-1 md:py-2">2022 - 2023</p>
+                        </div>
+                        <p class="anim-in-up text-base md:text-2xl text-light-secondary-text dark:text-dark-secondary-text">In the <a href="#" class="cursor-colorfull text-xl font-bold cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all text-black dark:text-white">Xofo Rolo</a> company</p>
+                        <p class="anim-in-up font-light mt-3 text-sm md:text-xl text-light-secondary-text dark:text-dark-secondary-text">I was involved in creating client side websites and expertise in clean, responsive, animated, UI for websites.</p>
+                    </div>
+                    <!-- Devider -->
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
+                    <!-- Item -->
+                    <div class="space-y-2 md:space-y-5 lg:space-y-2 px-3 md:px-6">
+                        <div class="anim-in-up flex justify-between items-center">
+                            <h4 class="text-2xl md:text-5xl">Back End Developer</h4>
+                            <p class="rounded-full h-max inline text-xs md:text-xl lg:text-base whitespace-nowrap bg-black/10 dark:bg-white/10 px-3 md:px-6 py-1 md:py-2">2022 - 2023</p>
+                        </div>
+                        <p class="anim-in-up text-base md:text-2xl text-light-secondary-text dark:text-dark-secondary-text">In the <a href="#" class="cursor-colorfull text-xl font-bold cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all text-black dark:text-white">CodeOVIK</a> company</p>
+                        <p class="anim-in-up font-light mt-3 text-sm md:text-xl text-light-secondary-text dark:text-dark-secondary-text">I was involved in creating server side websites and expertise in creating REST API, Payment Gateway, Authentication for websites.</p>
+                    </div>
+                    <!-- Devider -->
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
+                    <!-- Item -->
+                    <div class="space-y-2 md:space-y-5 lg:space-y-2 px-3 md:px-6">
+                        <div class="anim-in-up flex justify-between items-center">
+                            <h4 class="text-2xl md:text-5xl">AI Automation</h4>
+                            <p class="rounded-full h-max inline text-xs md:text-xl lg:text-base whitespace-nowrap bg-black/10 dark:bg-white/10 px-3 md:px-6 py-1 md:py-2">2022 - 2023</p>
+                        </div>
+                        <p class="anim-in-up text-base md:text-2xl text-light-secondary-text dark:text-dark-secondary-text">In the <a href="#" class="cursor-colorfull text-xl font-bold cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all text-black dark:text-white">Yozo AI</a> company</p>
+                        <p class="anim-in-up font-light mt-3 text-sm md:text-xl text-light-secondary-text dark:text-dark-secondary-text">I was involved in creating automation works in Zapper, n8n for automate Email, Chat Bot, Spread Sheets and a large scale management.</p>
+                    </div>
+                    <!-- Devider -->
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Portfolio section -->
         <section id="portfolio" class="w-full px-6 lg:px-12 py-12 md:py-18 bg-light-bg dark:bg-dark-bg">
             <div class="max-w-[1600px] mx-auto overflow-hidden grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6">
@@ -315,7 +378,7 @@
                     <h2 id="portfolioHeading" class="text-scrub text-slide md:text-7xl text-5xl text-center lg:text-left font-medium">
                         My Inovative Projects
                     </h2>
-                    <p class="anim-in-up mt-3 text-base md:text-2xl lg:text-lg font-light text-black/90 dark:text-white/90">
+                    <p class="anim-in-up mt-3 text-base md:text-2xl lg:text-lg text-light-secondary-text dark:text-dark-secondary-text">
                         Showcasing my recent work and creative projects, demonstrating design skills, development expertise, and innovative solutions for real-world applications.
                     </p>
                 </div>
@@ -388,20 +451,20 @@
                     <h2 id="stackHeading" class="text-scrub text-slide md:text-7xl text-5xl text-center lg:text-left font-medium">
                         My Tech Stack
                     </h2>
-                    <p class="anim-in-up mt-3 text-base md:text-2xl lg:text-lg font-light text-black/90 dark:text-white/90">
+                    <p class="anim-in-up mt-3 text-base md:text-2xl lg:text-lg text-light-secondary-text dark:text-dark-secondary-text">
                         A showcase of the tools, frameworks, and technologies I use to build modern, scalable, and high-performing web and mobile applications.
                     </p>
                 </div>
                 <!-- Items -->
                 <div id="stackCardContainer" class="space-y-6 md:space-y-12">
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-canva.png" alt="canva" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
                             <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Canva</p>
-                            <div class="anim-in-up w-full bg-light-element dark:bg-dark-element rounded-full h-1">
+                            <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="90">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
                                         <span class="flex-shrink-0">Expertise Level:</span>
@@ -412,13 +475,13 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-react.png" alt="react" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
                             <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">ReactJS</p>
-                            <div class="anim-in-up w-full bg-light-element dark:bg-dark-element rounded-full h-1">
+                            <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="80">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
                                         <span class="flex-shrink-0">Expertise Level:</span>
@@ -429,13 +492,13 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-figma.png" alt="figma" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
                             <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Figma</p>
-                            <div class="anim-in-up w-full bg-light-element dark:bg-dark-element rounded-full h-1">
+                            <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="63">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
                                         <span class="flex-shrink-0">Expertise Level:</span>
@@ -446,13 +509,13 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-html.png" alt="html" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
                             <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">HTML</p>
-                            <div class="anim-in-up w-full bg-light-element dark:bg-dark-element rounded-full h-1">
+                            <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="100">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
                                         <span class="flex-shrink-0">Expertise Level:</span>
@@ -463,13 +526,13 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-mongodb.png" alt="mongodb" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
                             <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">MongoDB</p>
-                            <div class="anim-in-up w-full bg-light-element dark:bg-dark-element rounded-full h-1">
+                            <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="75">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
                                         <span class="flex-shrink-0">Expertise Level:</span>
@@ -480,13 +543,13 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-gemini.png" alt="gemini" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
                             <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Gemini</p>
-                            <div class="anim-in-up w-full bg-light-element dark:bg-dark-element rounded-full h-1">
+                            <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="95">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
                                         <span class="flex-shrink-0">Expertise Level:</span>
@@ -497,13 +560,13 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-lovable.png" alt="lovable" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
                             <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Lovable</p>
-                            <div class="anim-in-up w-full bg-light-element dark:bg-dark-element rounded-full h-1">
+                            <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="68">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
                                         <span class="flex-shrink-0">Expertise Level:</span>
@@ -514,13 +577,13 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-tailwindcss.png" alt="tailwindcss" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
                             <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Tailwind CSS</p>
-                            <div class="anim-in-up w-full bg-light-element dark:bg-dark-element rounded-full h-1">
+                            <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="98">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
                                         <span class="flex-shrink-0">Expertise Level:</span>
@@ -531,13 +594,13 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-flutter.png" alt="flutter" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
                             <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Flutter</p>
-                            <div class="anim-in-up w-full bg-light-element dark:bg-dark-element rounded-full h-1">
+                            <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="12">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
                                         <span class="flex-shrink-0">Expertise Level:</span>
@@ -548,13 +611,13 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-git.png" alt="git" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
                             <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Git</p>
-                            <div class="anim-in-up w-full bg-light-element dark:bg-dark-element rounded-full h-1">
+                            <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="72">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
                                         <span class="flex-shrink-0">Expertise Level:</span>
@@ -565,13 +628,13 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-n8n.png" alt="n8n" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
                             <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">n8n</p>
-                            <div class="anim-in-up w-full bg-light-element dark:bg-dark-element rounded-full h-1">
+                            <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="85">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
                                         <span class="flex-shrink-0">Expertise Level:</span>
@@ -582,71 +645,7 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience section -->
-        <section id="experience" class="w-full px-6 lg:px-12 py-12 md:py-18 bg-light-bg dark:bg-dark-bg">
-            <div class="max-w-[1600px] mx-auto overflow-hidden grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6">
-                <!-- Title -->
-                <div id="exprienceHeadingConatiner" class="h-max overflow-hidden">
-                    <h2 id="exprienceHeading" class="text-scrub text-slide md:text-7xl text-5xl text-center lg:text-left font-medium">
-                        My Work Experience
-                    </h2>
-                    <p class="anim-in-up mt-3 text-base md:text-2xl lg:text-lg font-light text-black/90 dark:text-white/90">
-                        With years of hands-on experience, I have collaborated with brands worldwide, building responsive, user-friendly, and scalable web solutions.
-                    </p>
-                </div>
-                <!-- Items -->
-                <div id="exprienceCardContainer" class="space-y-6 md:space-y-12">
-                    <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
-                    <!-- Item -->
-                    <div class="space-y-2 md:space-y-5 lg:space-y-2 px-3 md:px-6">
-                        <div class="anim-in-up flex justify-between items-center">
-                            <h4 class="text-2xl md:text-5xl">Game Developer</h4>
-                            <p class="rounded-full h-max inline text-xs md:text-xl lg:text-base whitespace-nowrap bg-black/10 dark:bg-white/10 px-3 md:px-6 py-1 md:py-2">2020 - 2022</p>
-                        </div>
-                        <p class="anim-in-up text-base md:text-2xl text-black/70 dark:text-white/70 font-thin">In the <a class="text-xl cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all text-black dark:text-white">Vuda Magi</a> company</p>
-                        <p class="anim-in-up mt-3 font-light text-sm md:text-2xl lg:text-xl text-black/70 dark:text-white/70">I was involved in creating 2D and 3D game design and senior lead programmer in GD Script and For database, I used MongoDB. in Godot Game Engine.</p>
-                    </div>
-                    <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
-                    <!-- Item -->
-                    <div class="space-y-2 md:space-y-5 lg:space-y-2 px-3 md:px-6">
-                        <div class="anim-in-up flex justify-between items-center">
-                            <h4 class="text-2xl md:text-5xl">Frond End Developer</h4>
-                            <p class="rounded-full h-max inline text-xs md:text-xl lg:text-base whitespace-nowrap bg-black/10 dark:bg-white/10 px-3 md:px-6 py-1 md:py-2">2022 - 2023</p>
-                        </div>
-                        <p class="anim-in-up text-base md:text-2xl text-black/70 dark:text-white/70 font-thin">In the <a target="_blank" href="https://codeovik.web.app" class="text-xl cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all text-black dark:text-white">Xofo Rolo</a> company</p>
-                        <p class="anim-in-up mt-3 font-light text-sm md:text-2xl lg:text-xl text-black/70 dark:text-white/70">I was involved in creating client side websites and expertise in clean, responsive, animated, UI for websites.</p>
-                    </div>
-                    <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
-                    <!-- Item -->
-                    <div class="space-y-2 md:space-y-5 lg:space-y-2 px-3 md:px-6">
-                        <div class="anim-in-up flex justify-between items-center">
-                            <h4 class="text-2xl md:text-5xl">Back End Developer</h4>
-                            <p class="rounded-full h-max inline text-xs md:text-xl lg:text-base whitespace-nowrap bg-black/10 dark:bg-white/10 px-3 md:px-6 py-1 md:py-2">2022 - 2023</p>
-                        </div>
-                        <p class="anim-in-up text-base md:text-2xl text-black/70 dark:text-white/70 font-thin">In the <a target="_blank" href="https://codeovik.web.app" class="text-xl cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all text-black dark:text-white">CodeOVIK</a> company</p>
-                        <p class="anim-in-up mt-3 font-light text-sm md:text-2xl lg:text-xl text-black/70 dark:text-white/70">I was involved in creating server side websites and expertise in creating REST API, Payment Gateway, Authentication for websites.</p>
-                    </div>
-                    <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
-                    <!-- Item -->
-                    <div class="space-y-2 md:space-y-5 lg:space-y-2 px-3 md:px-6">
-                        <div class="anim-in-up flex justify-between items-center">
-                            <h4 class="text-2xl md:text-5xl">AI Automation</h4>
-                            <p class="rounded-full h-max inline text-xs md:text-xl lg:text-base whitespace-nowrap bg-black/10 dark:bg-white/10 px-3 md:px-6 py-1 md:py-2">2022 - 2023</p>
-                        </div>
-                        <p class="anim-in-up text-base md:text-2xl text-black/70 dark:text-white/70 font-thin">In the <a target="_blank" href="https://codeovik.web.app" class="text-xl cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all text-black dark:text-white">Yozo AI</a> company</p>
-                        <p class="anim-in-up mt-3 font-light text-sm md:text-2xl lg:text-xl text-black/70 dark:text-white/70">I was involved in creating automation works in Zapper, n8n for automate Email, Chat Bot, Spread Sheets and a large scale management.</p>
-                    </div>
-                    <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                 </div>
             </div>
         </section>
@@ -659,78 +658,78 @@
                     <h2 class="text-scrub text-slide md:text-7xl text-5xl text-center lg:text-left font-medium">
                         My Client Stories
                     </h2>
-                    <p class="anim-in-up mt-3 text-base md:text-2xl lg:text-lg font-light text-black/90 dark:text-white/90">
+                    <p class="anim-in-up mt-3 text-base md:text-2xl lg:text-lg text-light-secondary-text dark:text-dark-secondary-text">
                         Read testimonials that showcase client satisfaction, professional collaboration, and the impact of my digital solutions.
                     </p>
                 </div>
-                    <div class="swiper review-slide w-full">
-                        <!-- Items -->
-                        <div class="swiper-wrapper">
-                            <!-- Item -->
-                            <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-white/50 after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
-                                <img src="./assets/images/client-1.jpg" alt="alexander james" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                                <h6 class="text-2xl md:text-3xl">Alexander James</h6>
-                                <p class="text-base md:text-xl mb-3 opacity-70">Founder, NovaTech</p>
-                                <p class="font-light text-lg md:text-xl">The website Ovik created was beyond expectations. Clean design, smooth animations, and perfect responsiveness. He truly understood my vision and transformed it into something professional and engaging.</p>
-                            </div>
-                            <!-- Item -->
-                            <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-white/50 after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
-                                <img src="./assets/images/client-2.jpg" alt="maximiliano cruz" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                                <h6 class="text-2xl md:text-3xl">Maximiliano Cruz</h6>
-                                <p class="text-base md:text-xl mb-3 opacity-70">Marketing Manager, BrightWave</p>
-                                <p class="font-light text-lg md:text-xl">Working with Ovik was a delight. He delivered on time and kept me updated. The site looks amazing on both desktop and mobile, which boosted my client engagement significantly.</p>
-                            </div>
-                            <!-- Item -->
-                            <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-white/50 after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
-                                <img src="./assets/images/client-3.jpg" alt="josephine pearl" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                                <h6 class="text-2xl md:text-3xl">Josephine Pearl</h6>
-                                <p class="text-base md:text-xl mb-3 opacity-70">Tech Entrepreneur, Cloudify</p>
-                                <p class="font-light text-lg md:text-xl">I have worked with several developers, but Ovik stands out. His professionalism, structured coding style, and attention to detail make him the perfect choice for long-term collaborations.</p>
-                            </div>
-                            <!-- Item -->
-                            <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-white/50 after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
-                                <img src="./assets/images/client-4.jpg" alt="gabriella faith" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                                <h6 class="text-2xl md:text-3xl">Gabriella Faith</h6>
-                                <p class="text-base md:text-xl mb-3 opacity-70">Content Creator, PixelHive</p>
-                                <p class="font-light text-lg md:text-xl">Ovik turned my rough ideas into a sleek website. His patience and creativity stood out. He ensured every detail matched my vision, making the final product highly impactful.</p>
-                            </div>
-                            <!-- Item -->
-                            <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-white/50 after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
-                                <img src="./assets/images/client-5.jpg" alt="valentina grace" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                                <h6 class="text-2xl md:text-3xl">Valentina Grace</h6>
-                                <p class="text-base md:text-xl mb-3 opacity-70">Owner, TrendyMart</p>
-                                <p class="font-light text-lg md:text-xl">From start to finish, the experience was smooth. My e-commerce store now loads faster, looks professional, and attracts more buyers. Ovik’s technical expertise truly made a difference.</p>
-                            </div>
-                            <!-- Item -->
-                            <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-white/50 after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
-                                <img src="./assets/images/client-6.jpg" alt="sebastian leo" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                                <h6 class="text-2xl md:text-3xl">Sebastian Leo</h6>
-                                <p class="text-base md:text-xl mb-3 opacity-70">Consultant, StratEdge</p>
-                                <p class="font-light text-lg md:text-xl">Ovik is an excellent problem solver. His thoughtful suggestions improved my website’s usability and made it much more appealing. Highly professional, communicative, and trustworthy in every way.</p>
-                            </div>
-                            <!-- Item -->
-                            <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-white/50 after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
-                                <img src="./assets/images/client-7.jpg" alt="seraphina claire" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                                <h6 class="text-2xl md:text-3xl">Seraphina Claire</h6>
-                                <p class="text-base md:text-xl mb-3 opacity-70">Creative Director, Visionary Lab</p>
-                                <p class="font-light text-lg md:text-xl">Attention to detail is what makes Ovik stand out. Every section of my website feels polished and professional. He brought creativity and precision into the project beautifully.</p>
-                            </div>
-                            <!-- Item -->
-                            <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-white/50 after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
-                                <img src="./assets/images/client-8.jpg" alt="anastasia rose" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                                <h6 class="text-2xl md:text-3xl">Anastasia Rose</h6>
-                                <p class="text-base md:text-xl mb-3 opacity-70">Blogger, LifeLens</p>
-                                <p class="font-light text-lg md:text-xl">My blog now looks elegant and professional. The layout is responsive, user-friendly, and stylish. Ovik explained everything clearly, which made the process very smooth and stress-free.</p>
-                            </div>
-                            <!-- Item -->
-                            <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-white/50 after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
-                                <img src="./assets/images/client-9.jpg" alt="nathaniel scott" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                                <h6 class="text-2xl md:text-3xl">Nathaniel Scott</h6>
-                                <p class="text-base md:text-xl mb-3 opacity-70">App Developer, CodeNova</p>
-                                <p class="font-light text-lg md:text-xl">Ovik built a stylish portfolio website for me that perfectly showcases my apps. His design sense and technical execution gave my work a professional edge that I really needed.</p>
-                            </div>
+                <div class="anim-in-up swiper review-slide w-full">
+                    <!-- Items -->
+                    <div class="swiper-wrapper">
+                        <!-- Item -->
+                        <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
+                            <img src="./assets/images/client-1.jpg" alt="alexander james" class="rounded-full aspect-square h-20 md:h-25 mb-3">
+                            <h6 class="text-2xl md:text-4xl">Alexander James</h6>
+                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Founder, NovaTech</p>
+                            <p class="font-light text-lg md:text-xl">The website Ovik created was beyond expectations. Clean design, smooth animations, and perfect responsiveness. He truly understood my vision and transformed it into something professional and engaging.</p>
+                        </div>
+                        <!-- Item -->
+                        <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
+                            <img src="./assets/images/client-2.jpg" alt="maximiliano cruz" class="rounded-full aspect-square h-20 md:h-25 mb-3">
+                            <h6 class="text-2xl md:text-4xl">Maximiliano Cruz</h6>
+                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Marketing Manager, BrightWave</p>
+                            <p class="font-light text-lg md:text-xl">Working with Ovik was a delight. He delivered on time and kept me updated. The site looks amazing on both desktop and mobile, which boosted my client engagement significantly.</p>
+                        </div>
+                        <!-- Item -->
+                        <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
+                            <img src="./assets/images/client-3.jpg" alt="josephine pearl" class="rounded-full aspect-square h-20 md:h-25 mb-3">
+                            <h6 class="text-2xl md:text-4xl">Josephine Pearl</h6>
+                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Tech Entrepreneur, Cloudify</p>
+                            <p class="font-light text-lg md:text-xl">I have worked with several developers, but Ovik stands out. His professionalism, structured coding style, and attention to detail make him the perfect choice for long-term collaborations.</p>
+                        </div>
+                        <!-- Item -->
+                        <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
+                            <img src="./assets/images/client-4.jpg" alt="gabriella faith" class="rounded-full aspect-square h-20 md:h-25 mb-3">
+                            <h6 class="text-2xl md:text-4xl">Gabriella Faith</h6>
+                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Content Creator, PixelHive</p>
+                            <p class="font-light text-lg md:text-xl">Ovik turned my rough ideas into a sleek website. His patience and creativity stood out. He ensured every detail matched my vision, making the final product highly impactful.</p>
+                        </div>
+                        <!-- Item -->
+                        <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
+                            <img src="./assets/images/client-5.jpg" alt="valentina grace" class="rounded-full aspect-square h-20 md:h-25 mb-3">
+                            <h6 class="text-2xl md:text-4xl">Valentina Grace</h6>
+                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Owner, TrendyMart</p>
+                            <p class="font-light text-lg md:text-xl">From start to finish, the experience was smooth. My e-commerce store now loads faster, looks professional, and attracts more buyers. Ovik’s technical expertise truly made a difference.</p>
+                        </div>
+                        <!-- Item -->
+                        <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
+                            <img src="./assets/images/client-6.jpg" alt="sebastian leo" class="rounded-full aspect-square h-20 md:h-25 mb-3">
+                            <h6 class="text-2xl md:text-4xl">Sebastian Leo</h6>
+                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Consultant, StratEdge</p>
+                            <p class="font-light text-lg md:text-xl">Ovik is an excellent problem solver. His thoughtful suggestions improved my website’s usability and made it much more appealing. Highly professional, communicative, and trustworthy in every way.</p>
+                        </div>
+                        <!-- Item -->
+                        <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
+                            <img src="./assets/images/client-7.jpg" alt="seraphina claire" class="rounded-full aspect-square h-20 md:h-25 mb-3">
+                            <h6 class="text-2xl md:text-4xl">Seraphina Claire</h6>
+                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Creative Director, Visionary Lab</p>
+                            <p class="font-light text-lg md:text-xl">Attention to detail is what makes Ovik stand out. Every section of my website feels polished and professional. He brought creativity and precision into the project beautifully.</p>
+                        </div>
+                        <!-- Item -->
+                        <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
+                            <img src="./assets/images/client-8.jpg" alt="anastasia rose" class="rounded-full aspect-square h-20 md:h-25 mb-3">
+                            <h6 class="text-2xl md:text-4xl">Anastasia Rose</h6>
+                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Blogger, LifeLens</p>
+                            <p class="font-light text-lg md:text-xl">My blog now looks elegant and professional. The layout is responsive, user-friendly, and stylish. Ovik explained everything clearly, which made the process very smooth and stress-free.</p>
+                        </div>
+                        <!-- Item -->
+                        <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
+                            <img src="./assets/images/client-9.jpg" alt="nathaniel scott" class="rounded-full aspect-square h-20 md:h-25 mb-3">
+                            <h6 class="text-2xl md:text-4xl">Nathaniel Scott</h6>
+                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">App Developer, CodeNova</p>
+                            <p class="font-light text-lg md:text-xl">Ovik built a stylish portfolio website for me that perfectly showcases my apps. His design sense and technical execution gave my work a professional edge that I really needed.</p>
                         </div>
                     </div>
+                </div>
             </div>
         </section>
 
@@ -739,7 +738,7 @@
             <div class="max-w-[1600px] mx-auto">
                 <!-- Title -->
                 <h2 class="lg:w-[800px] mx-auto mb-6 overflow-hidden">
-                    <span class="block md:inline before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full text-sm md:text-base pr-20 md:bottom-3 font-light">
+                    <span class="anim-in-up block md:inline before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full text-sm md:text-base pr-20 md:bottom-3 font-light">
                         My Pricing
                     </span>
                     <span class="text-slide text-scrub md:text-5xl text-3xl">
@@ -749,7 +748,7 @@
                 <!-- Items -->
                 <div class="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-6">
                     <!-- Devider -->
-                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="anim-in-up-group flex-1 space-y-4 lg:py-6">
                         <h3 class="text-3xl text-primary selection:bg-black dark:selection:bg-white">Basic</h3>
@@ -761,15 +760,15 @@
                                 <p class="text-7xl leading-none">80</p>
                             </div>
                             <div class="flex flex-col justify-end">
-                                <p class="text-2xl opacity-70">/ project</p>
+                                <p class="text-2xl text-light-secondary-text dark:text-dark-secondary-text">/ project</p>
                             </div>
                         </div>
-                        <p class="opacity-70 font-light">Single page website with responsive, mordern UI design and SEO friendly websie perfect for mini projects.</p>
+                        <p class="text-light-secondary-text dark:text-dark-secondary-text md:text-xl lg:text-base">Single page website with responsive, mordern UI design and SEO friendly websie perfect for mini projects.</p>
                         <a href="#contact" class="cursor-black-white mt-6 rounded-full text-brand-contrast bg-primary transition-all block text-center cursor-pointer py-3 hover:bg-primary/70 font-semibold">Unlock Basics</a>
                         <div class="flex items-center gap-3">
-                            <div class="bg-white/30 w-full h-[2px] rounded-full"></div>
-                            <p class="tracking-widest opacity-50">FEATURES</p>
-                            <div class="bg-white/30 w-full h-[2px] rounded-full"></div>
+                            <div class="bg-light-secondary-text dark:bg-dark-secondary-text w-full h-[2px] rounded-full"></div>
+                            <p class="tracking-widest text-light-secondary-text dark:text-dark-secondary-text">FEATURES</p>
+                            <div class="bg-light-secondary-text dark:bg-dark-secondary-text w-full h-[2px] rounded-full"></div>
                         </div>
                         <ul class="space-y-3">
                             <li class="flex gap-3">
@@ -796,10 +795,14 @@
                                 <svg class="aspect-square h-6 bg-primary/10 border-2 border-primary/20 rounded-full p-1 fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.369 78.369"><g><path d="M78.049,19.015L29.458,67.606c-0.428,0.428-1.121,0.428-1.548,0L0.32,40.015c-0.427-0.426-0.427-1.119,0-1.547l6.704-6.704 c0.428-0.427,1.121-0.427,1.548,0l20.113,20.112l41.113-41.113c0.429-0.427,1.12-0.427,1.548,0l6.703,6.704	C78.477,17.894,78.477,18.586,78.049,19.015z"/></g></svg>
                                 <span class="text-lg">Fast Delivery</span>
                             </li>
+                            <li class="flex gap-3">
+                                <svg class="aspect-square h-6 bg-primary/10 border-2 border-primary/20 rounded-full p-1 fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.369 78.369"><g><path d="M78.049,19.015L29.458,67.606c-0.428,0.428-1.121,0.428-1.548,0L0.32,40.015c-0.427-0.426-0.427-1.119,0-1.547l6.704-6.704 c0.428-0.427,1.121-0.427,1.548,0l20.113,20.112l41.113-41.113c0.429-0.427,1.12-0.427,1.548,0l6.703,6.704	C78.477,17.894,78.477,18.586,78.049,19.015z"/></g></svg>
+                                <span class="text-lg">2 Times Revetions</span>
+                            </li>
                         </ul>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="anim-in-up-group flex-1 space-y-4 lg:py-6">
                         <div class="flex justify-between items-center">
@@ -814,15 +817,15 @@
                                 <p class="text-7xl leading-none">250</p>
                             </div>
                             <div class="flex flex-col justify-end">
-                                <p class="text-2xl opacity-70">/ project</p>
+                                <p class="text-2xl text-light-secondary-text dark:text-dark-secondary-text">/ project</p>
                             </div>
                         </div>
-                        <p class="opacity-70 font-light">Multipage custom responsive, clean UI and optimized for assets and SEO that perfect for your mini buisness.</p>
+                        <p class="text-light-secondary-text dark:text-dark-secondary-text md:text-xl lg:text-base">Multipage custom responsive, clean UI and optimized for assets and SEO that perfect for your mini buisness.</p>
                         <a href="#contact" class="cursor-black-white mt-6 rounded-full text-brand-contrast bg-primary transition-all block text-center cursor-pointer py-3 hover:bg-primary/70 font-semibold">Upgrade Now</a>
                         <div class="flex items-center gap-3">
-                            <div class="bg-white/30 w-full h-[2px] rounded-full"></div>
-                            <p class="tracking-widest opacity-50">FEATURES</p>
-                            <div class="bg-white/30 w-full h-[2px] rounded-full"></div>
+                            <div class="bg-light-secondary-text dark:bg-dark-secondary-text w-full h-[2px] rounded-full"></div>
+                            <p class="tracking-widest text-light-secondary-text dark:text-dark-secondary-text">FEATURES</p>
+                            <div class="bg-light-secondary-text dark:bg-dark-secondary-text w-full h-[2px] rounded-full"></div>
                         </div>
                         <ul class="space-y-3">
                             <li class="flex gap-3">
@@ -856,7 +859,7 @@
                         </ul>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="anim-in-up-group flex-1 space-y-4 lg:py-6">
                         <h3 class="text-3xl text-primary selection:bg-black dark:selection:bg-white">Enterprise</h3>
@@ -868,15 +871,15 @@
                                 <p class="text-7xl leading-none">780</p>
                             </div>
                             <div class="flex flex-col justify-end">
-                                <p class="text-2xl opacity-70">/ project</p>
+                                <p class="text-2xl text-light-secondary-text dark:text-dark-secondary-text">/ project</p>
                             </div>
                         </div>
-                        <p class="opacity-70 font-light">Fully dedicated website like animation, user and client dashboard, Unique Design, Auth for a enterprise level buisness.</p>
+                        <p class="text-light-secondary-text dark:text-dark-secondary-text md:text-xl lg:text-base">Fully dedicated website like animation, user and client dashboard, Unique Design, Auth for a enterprise level buisness.</p>
                         <a href="#contact" class="cursor-black-white mt-6 rounded-full text-brand-contrast bg-primary transition-all block text-center cursor-pointer py-3 hover:bg-primary/70 font-semibold">Get the Ultimate Deal</a>
                         <div class="flex items-center gap-3">
-                            <div class="bg-white/30 w-full h-[2px] rounded-full"></div>
-                            <p class="tracking-widest opacity-50">FEATURES</p>
-                            <div class="bg-white/30 w-full h-[2px] rounded-full"></div>
+                            <div class="bg-light-secondary-text dark:bg-dark-secondary-text w-full h-[2px] rounded-full"></div>
+                            <p class="tracking-widest text-light-secondary-text dark:text-dark-secondary-text">FEATURES</p>
+                            <div class="bg-light-secondary-text dark:bg-dark-secondary-text w-full h-[2px] rounded-full"></div>
                         </div>
                         <ul class="space-y-3">
                             <li class="flex gap-3">
@@ -910,7 +913,7 @@
                         </ul>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                 </div>
             </div>
         </section>
@@ -920,7 +923,7 @@
             <div class="max-w-[1600px] mx-auto">
                 <!-- Title -->
                 <h2 class="lg:w-[800px] mx-auto mb-6 overflow-hidden">
-                    <span class="block md:inline before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full text-sm md:text-base pr-20 md:bottom-3 font-light">
+                    <span class="anim-in-up block md:inline before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full text-sm md:text-base pr-20 md:bottom-3 font-light">
                         Conatct me
                     </span>
                     <span class="text-slide text-scrub md:text-5xl text-3xl">
@@ -928,13 +931,13 @@
                     </span>
                 </h2>
                 <!-- Form -->
-                <form class="space-y-6 md:space-y-12 lg:grid lg:grid-cols-2 lg:gap-x-12">
+                <form class="space-y-6 md:space-y-12 lg:grid lg:grid-cols-2 lg:gap-x-6">
                     <!-- Input fields -->
-                    <input required id="userName" type="text" placeholder="Your Name*" class="anim-in-up-group text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:focus:border-white focus:border-black dark:border-white/50 border-black/50 relative w-full">
-                    <input id="userCompany" type="text" placeholder="Your Company" class="anim-in-up-group text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:focus:border-white focus:border-black dark:border-white/50 border-black/50 relative w-full">
-                    <input required id="userEmail" type="email" placeholder="Your Email*" class="anim-in-up-group text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:focus:border-white focus:border-black dark:border-white/50 border-black/50 relative w-full">
-                    <input id="userPhone" type="tel" placeholder="Your Phone" class="anim-in-up-group text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:focus:border-white focus:border-black dark:border-white/50 border-black/50 relative w-full">
-                    <textarea required id="userMessage" rows="4" placeholder="Your Message*" class="anim-in-up-group text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:focus:border-white focus:border-black dark:border-white/50 border-black/50 relative w-full lg:col-span-2"></textarea>
+                    <input required id="userName" type="text" placeholder="Your Name*" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
+                    <input id="userCompany" type="text" placeholder="Your Company" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
+                    <input required id="userEmail" type="email" placeholder="Your Email*" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
+                    <input id="userPhone" type="tel" placeholder="Your Phone" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
+                    <textarea required id="userMessage" rows="4" placeholder="Your Message*" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full lg:col-span-2"></textarea>
                     <!-- Button -->
                     <div class="flex justify-between md:col-span-2 text-base -mt-3 md:-mt-6">
                         <button id="saveDraft" class="cursor-colorfull anim-in-up-group group flex relative w-max font-semibold items-center cursor-pointer gap-1 text-base bg-black dark:bg-white py-3 px-6 rounded-full text-white">
@@ -964,7 +967,7 @@
             <div class="max-w-[1600px] mx-auto overflow-hidden">
                 <!-- Title -->
                 <h2 class="lg:w-[800px] mx-auto mb-6 overflow-hidden">
-                    <span class="block md:inline before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full text-sm md:text-base pr-20 md:bottom-3 font-light">
+                    <span class="anim-in-up block md:inline before:absolute before:aspect-square before:h-1 before:bg-black dark:before:bg-white relative pl-3 before:transform before:-translate-y-1/2 before:top-1/2 before:left-0 before:rounded-full text-sm md:text-base pr-20 md:bottom-3 font-light">
                         FAQ
                     </span>
                     <span class="text-slide text-scrub md:text-5xl text-3xl">
@@ -974,7 +977,7 @@
                 <!-- Items -->
                 <div class="main-content space-y-6">
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="cursor-colorfull anim-in-up faq-item px-3 md:px-6 transition-all overflow-hidden">
                         <button class="faq-question text-xl md:text-3xl w-full flex justify-between text-left md:font-medium cursor-pointer">
@@ -986,7 +989,7 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="cursor-colorfull anim-in-up faq-item px-3 md:px-6 transition-all overflow-hidden">
                         <button class="faq-question text-xl md:text-3xl w-full flex justify-between text-left md:font-medium cursor-pointer">
@@ -998,7 +1001,7 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="cursor-colorfull anim-in-up faq-item px-3 md:px-6 transition-all overflow-hidden">
                         <button class="faq-question text-xl md:text-3xl w-full flex justify-between text-left md:font-medium cursor-pointer">
@@ -1010,7 +1013,7 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="cursor-colorfull anim-in-up faq-item px-3 md:px-6 transition-all overflow-hidden">
                         <button class="faq-question text-xl md:text-3xl w-full flex justify-between text-left md:font-medium cursor-pointer">
@@ -1022,7 +1025,7 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="cursor-colorfull anim-in-up faq-item px-3 md:px-6 transition-all overflow-hidden">
                         <button class="faq-question text-xl md:text-3xl w-full flex justify-between text-left md:font-medium cursor-pointer">
@@ -1034,7 +1037,7 @@
                         </div>
                     </div>
                     <!-- Devider -->
-                    <div class="anim-in-up block h-[3px] rounded-full bg-black/50 dark:bg-white/50"></div>
+                    <div class="anim-in-up block h-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                 </div>
             </div>
         </section>
@@ -1048,8 +1051,7 @@
                 </h2>
                 <!-- Copyright -->
                 <p class="anim-in-up text-black/70 dark:text-white/70 text-base md:text-lg text-center mt-12">
-                    &copy; 
-                    <span id="year"></span> 
+                    &copy; <span id="year"></span> 
                     <a href="#" class="text-black dark:text-white font-medium cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all">
                         CodeOVIK
                     </a>
@@ -1059,7 +1061,7 @@
         </footer>
 
         <!-- Scripts -->
-        <script src="./assets/js/email.min.js"></script>
+        <script src="./assets/js/emailjs.min.js"></script>
         <script src="./assets/js/gsap.min.js"></script>
         <script src="./assets/js/ScrollTrigger.min.js"></script>
         <script src="./assets/js/SplitText.min.js"></script>
@@ -1067,7 +1069,7 @@
         <script src="./assets/js/typed.min.js"></script>
         <script src="./assets/js/vanilla-tilt.min.js"></script>
         <script src="./assets/js/lenis.min.js"></script>
-        <script src="./assets/js/swiper-bundle.min.js"></script>
+        <script src="./assets/js/swiper.min.js"></script>
         <script defer src="./assets/js/script.js"></script>
     </body>
 </html>

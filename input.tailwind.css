@@ -3,15 +3,26 @@
 
 /* theme variable  */
 @theme {
+  /* brand */
   --color-primary: #86EFAC; /* brand color */
-  --color-brand-contrast: black; /* black or white based on brand color */
-  --color-light-element: #f7f7f7; /* element color in light theme */
-  --color-light-element-hover: #f2f2f2; /* element hover color in light theme */
-  --color-dark-element: #101010; /* element color in dark theme */
-  --color-dark-element-hover: #151515; /* element hover color in dark theme */
+  --color-brand-contrast: black; /* black or white based on brand color for button and links which background is brand color */
+
+  /* text */
+  --color-light-secondary-text: #505050; /* softer text for subtitles in light theme */
+  --color-dark-secondary-text: #cccccc; /* softer text for subtitles in dark theme */
+
+  /* background */
   --color-light-bg: #fff; /* background color in light theme */
   --color-dark-bg: #030303; /* background color in dark theme */
-  --default-transition-duration: 0.5s; /* animation speed */
+
+  /* devider/border */
+  --color-light-devider: #606060; /* devider color in light theme */
+  --color-dark-devider: #aaaaaa; /* devider color in light theme */
+
+  /* utilities */
+  --default-transition-duration: 0.5s; /* transition speed */
+  --breakpoint-md: 40rem;
+  /* --breakpoint-xs: 30rem; */
 }
 
 /* fonts */

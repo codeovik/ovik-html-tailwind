@@ -1,3 +1,24 @@
+/* table of contents:
+01 - Dark mode
+02 - Cursor follower
+03 - Background cursor follower
+04 - Smooth scroll
+05 - Element scroll animation
+06 - Go top with smooth scroll
+07 - Youtube video pop up
+08 - Navbar
+09 - Hero sevtion
+10 - Achivements section
+11 - Partner section
+12 - Exprience section
+13 - Portfolio section
+14 - Testimonial section
+15 - Tech stack section
+16 - Contact from submit with EmailJS
+17 - FAQ section
+18 - Footer
+------------------------------------------------------------*/
+
 // gsap plugin initialization
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -24,8 +45,8 @@ document.addEventListener("mousemove", (e) => {
   gsap.matchMedia().add("(min-width: 1024px)", () => {
     cursorFollower.style.display = "flex" // visible
     gsap.to(cursorFollower, {
-      x: e.clientX - 6, // center in x axis
-      y: e.clientY - 6, // center in y axis
+      x: e.clientX - 8, // center in x axis
+      y: e.clientY - 8, // center in y axis
       duration: 1, // speed
       ease: "power4.out",
     });
@@ -134,7 +155,7 @@ gsap.ticker.add((time) => {
 // lag smoothing off
 gsap.ticker.lagSmoothing(0);
 
-/* animation
+/* element scroll animation
 ------------------------------------------------------------*/
 // fade in up
 document.querySelectorAll(".anim-in-up").forEach((e=> {
@@ -428,7 +449,7 @@ gsap.from(new SplitText("#heroDescription", { type: "lines" }).lines, {
 gsap.from("#heroSocial a", {
   x: 100,
   opacity: 0,
-  delay: 3.1,
+  delay: 2.9,
   stagger: 0.05,
   duration: 1,
   ease: "power4.out",
@@ -440,7 +461,7 @@ gsap.set(".heroBtn", {
 })
 gsap.to(".heroBtn", {
   opacity: 1,
-  delay: 3.4,
+  delay: 3.2,
   stagger: 0.1,
   duration: 1,
   ease: "power4.out",
@@ -563,7 +584,7 @@ var swiper = new Swiper(".review-slide", {
   speed: 1000,
   grabCursor: true,
   autoplay: {
-    delay: 1000,
+    delay: 2000,
     disableOnInteraction: false,
   },
 });
