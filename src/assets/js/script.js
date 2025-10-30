@@ -103,7 +103,7 @@ copyElEmail.addEventListener("mouseenter", (e) => {
   cursorFollower.innerHTML = `<p class="text-[3px] text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">Copy Email</p>`; // add "view more" text
   gsap.to(cursorFollower, {
     scale: 7, // scale up
-    backdropFilter: "blur(2px)", // blur effect
+    backdropFilter: "blur(3px)", // blur effect
     backgroundColor: "#00000050" // background
   });
 });
@@ -708,9 +708,6 @@ if (isFormDataSaved) {
 
 // form send to emailjs
 // config
-// const emailjsPublicKey = "fw1Kyv4KqIc1NfcYf";
-// const emailjsServiceId = "service_zxf6x98";
-// const emailjsTemplateId = "template_zweyvqb";
 const emailjsPublicKey = "EMAIL_JS_PUBLIC_KEY_HERE";
 const emailjsServiceId = "EMAIL_JS_SERVICE_ID_HERE";
 const emailjsTemplateId = "EMAIL_JS_TEMPLATE_ID_HERE";
@@ -733,11 +730,11 @@ submitBtn.addEventListener('click', function (e) {
   // make array for get input fields data from html
   const formData = {
     to_name: "Admin",
-    user_name: document.getElementById('userName').value,
-    user_company: document.getElementById('userCompany').value,
-    user_email: document.getElementById('userEmail').value,
-    user_phone: document.getElementById('userPhone').value,
-    user_message: document.getElementById('userMessage').value,
+    user_name: document.getElementById('formName').value,
+    user_company: document.getElementById('formCompany').value,
+    user_email: document.getElementById('formEmail').value,
+    user_phone: document.getElementById('formPhone').value,
+    user_message: document.getElementById('formMessage').value,
   };
   // send to emailjs
   emailjs.send(emailjsServiceId, emailjsTemplateId, formData).then(function (res) {

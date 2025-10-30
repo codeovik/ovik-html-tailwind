@@ -35,7 +35,7 @@
 
         <!-- Contact form draft save successfull pop up message -->
         <div id="formDraftPopUp" class="hidden fixed inset-0 items-center justify-center bg-black/50 backdrop-blur-2xl z-104">
-            <div class="bg-white dark:bg-black w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center">
+            <div class="bg-white dark:bg-black w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center border-3 dark:border-white/10 border-black/10">
                 <h3 class="text-xl md:text-4xl font-semibold">Draft Saved Successfully</h3>
                 <p class="text-sm md:text-base text-left mt-3">Your contact form data has been saved in local storage. You can see your data and submit anytime after refresh the page or come back later.</p>
                 <button class="cursor-black-white mt-8 px-6 py-3 bg-primary hover:bg-primary/70 transition-all rounded-full cursor-pointer text-brand-contrast flex gap-1 mx-auto font-semibold">
@@ -47,7 +47,7 @@
 
         <!-- Contact form submit successfull pop up message -->
         <div id="formSuccessPopUp" class="hidden fixed inset-0 items-center justify-center bg-black/50 backdrop-blur-2xl z-104">
-            <div class="bg-lwhite dark:bg-black w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center">
+            <div class="bg-white dark:bg-black w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center border-3 dark:border-white/10 border-black/10">
                 <h3 class="text-xl md:text-4xl font-semibold">Form submition Successfull</h3>
                 <p class="text-sm md:text-base text-left mt-3">Your data has sent to me. I will mail you soon. Thanks!</p>
                 <button class="cursor-black-white mt-12 px-6 py-3 bg-primary hover:bg-primary/70 transition-all rounded-full cursor-pointer text-brand-contrast flex gap-1 mx-auto font-semibold">
@@ -59,7 +59,7 @@
 
         <!-- Contact form submit error pop up message -->
         <div id="formErrorPopUp" class="hidden fixed inset-0 items-center justify-center bg-black/50 backdrop-blur-2xl z-104">
-            <div class="bg-white dark:bg-black w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center">
+            <div class="bg-white dark:bg-black w-[90%] md:w-full md:max-w-150 p-6 rounded-2xl md:rounded-3xl text-center border-3 dark:border-white/10 border-black/10">
                 <h3 class="text-xl md:text-4xl font-semibold">Form submition Error</h3>
                 <p class="text-sm md:text-base text-left mt-3">Your data hasn't sent to me. After buy this template, you will find how to setup for send data using Email JS. With Email JS, you not need to any backend server.</p>
                 <button class="cursor-black-white mt-8 px-6 py-3 bg-primary hover:bg-primary/70 transition-all rounded-full cursor-pointer text-brand-contrast flex gap-1 mx-auto font-semibold">
@@ -109,13 +109,13 @@
                 <!-- Menu items -->
                 <ul id="manuList" class="text-2xl space-y-2 font-medium">
                     <li>
-                        <a href="#hero" class="cursor-colorfull">Home</a>
+                        <a href="#home" class="cursor-colorfull">Home</a>
                     </li>
                     <li>
                         <a href="#achievements" class="cursor-colorfull">Achievements</a>
                     </li>
                     <li>
-                        <a href="#colaborate" class="cursor-colorfull">Colaborate</a>
+                        <a href="#partner" class="cursor-colorfull">Partner</a>
                     </li>
                     <li>
                         <a href="#experience" class="cursor-colorfull">Experience</a>
@@ -124,19 +124,22 @@
                         <a href="#portfolio" class="cursor-colorfull">Portfolio</a>
                     </li>
                     <li>
-                        <a href="#Pricing" class="cursor-colorfull">Pricing</a>
-                    </li>
-                    <li>
-                        <a href="#testimonial" class="cursor-colorfull">Testimonial</a>
+                        <a href="#pricing" class="cursor-colorfull">Pricing</a>
                     </li>
                     <li>
                         <a href="#tech-stack" class="cursor-colorfull">Tech Stack</a>
                     </li>
                     <li>
+                        <a href="#testimonial" class="cursor-colorfull">Testimonial</a>
+                    </li>
+                    <li>
+                        <a href="#pricing" class="cursor-colorfull">Pricing</a>
+                    </li>
+                    <li>
                         <a href="#contact" class="cursor-colorfull">Contact</a>
                     </li>
                     <li>
-                        <a href="#faq" class="cursor-colorfull">Faq</a>
+                        <a href="#faq" class="cursor-colorfull">FAQ</a>
                     </li>
                 </ul>
                 <!-- Social media title -->
@@ -177,7 +180,7 @@
         </nav>
 
         <!-- Hero section -->
-        <header id="hero" class="max-w-[1600px] px-6 lg:px-12 mx-auto grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6 mb-18 md:mb-36 items-center">
+        <header id="home" class="max-w-[1600px] px-6 lg:px-12 mx-auto grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6 mb-18 md:mb-36 items-center">
             <!-- Image -->
             <img data-tilt data-tilt-glare data-tilt-speed="50" src="./assets/images/hero.jpg" alt="hero" class="rounded-2xl md:rounded-3xl">
             <div class="space-y-5 lg:space-y-5 overflow-hidden">
@@ -253,21 +256,21 @@
                     <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="flex flex-col flex-1 py-6 gap-1 items-center justify-center">
-                        <p class="anim-in-up-group text-7xl lg:text-8xl text-center" data-target-achivements="95%">0%</p>
+                        <h4 class="anim-in-up-group text-7xl lg:text-8xl text-center" data-target-achivements="95%">0%</h4>
                         <p class="anim-in-up-group text-3xl font-light text-center">Success Rate</p>
                     </div>
                     <!-- Devider -->
                     <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="flex flex-col flex-1 py-6 gap-1 items-center justify-center">
-                        <p class="anim-in-up-group text-7xl lg:text-8xl text-center" data-target-achivements="800+">0+</p>
+                        <h4 class="anim-in-up-group text-7xl lg:text-8xl text-center" data-target-achivements="800+">0+</h4>
                         <p class="anim-in-up-group text-3xl font-light text-center">Satisfied Clients</p>
                     </div>
                     <!-- Devider -->
                     <div class="anim-in-up-group block h-[3px] lg:h-auto w-full lg:w-[3px] rounded-full bg-light-devider dark:bg-dark-devider"></div>
                     <!-- Item -->
                     <div class="flex flex-col flex-1 py-6 gap-1 items-center justify-center">
-                        <p class="anim-in-up-group text-7xl lg:text-8xl text-center" data-target-achivements="800+">0+</p>
+                        <h4 class="anim-in-up-group text-7xl lg:text-8xl text-center" data-target-achivements="800+">0+</h4>
                         <p class="anim-in-up-group text-3xl font-light text-center">Satisfied Clients</p>
                     </div>
                     <!-- Devider -->
@@ -463,7 +466,7 @@
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-canva.png" alt="canva" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
-                            <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Canva</p>
+                            <h4 class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Canva</h4>
                             <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="90">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
@@ -480,7 +483,7 @@
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-react.png" alt="react" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
-                            <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">ReactJS</p>
+                            <h4 class="anim-in-up text-center text-3xl md:text-6xl flex items-center">ReactJS</h4>
                             <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="80">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
@@ -497,7 +500,7 @@
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-figma.png" alt="figma" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
-                            <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Figma</p>
+                            <h4 class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Figma</h4>
                             <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="63">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
@@ -514,7 +517,7 @@
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-html.png" alt="html" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
-                            <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">HTML</p>
+                            <h4 class="anim-in-up text-center text-3xl md:text-6xl flex items-center">HTML</h4>
                             <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="100">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
@@ -531,7 +534,7 @@
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-mongodb.png" alt="mongodb" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
-                            <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">MongoDB</p>
+                            <h4 class="anim-in-up text-center text-3xl md:text-6xl flex items-center">MongoDB</h4>
                             <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="75">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
@@ -548,7 +551,7 @@
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-gemini.png" alt="gemini" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
-                            <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Gemini</p>
+                            <h4 class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Gemini</h4>
                             <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="95">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
@@ -565,7 +568,7 @@
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-lovable.png" alt="lovable" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
-                            <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Lovable</p>
+                            <h4 class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Lovable</h4>
                             <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="68">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
@@ -582,7 +585,7 @@
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-tailwindcss.png" alt="tailwindcss" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
-                            <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Tailwind CSS</p>
+                            <h4 class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Tailwind CSS</h4>
                             <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="98">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
@@ -599,7 +602,7 @@
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-flutter.png" alt="flutter" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
-                            <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Flutter</p>
+                            <h4 class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Flutter</h4>
                             <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="12">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
@@ -616,7 +619,7 @@
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-git.png" alt="git" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
-                            <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Git</p>
+                            <h4 class="anim-in-up text-center text-3xl md:text-6xl flex items-center">Git</h4>
                             <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="72">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
@@ -633,7 +636,7 @@
                     <div class="px-3 md:px-6 gap-6 flex items-center justify-start">
                         <img src="./assets/images/stack-n8n.png" alt="n8n" class="anim-in-up aspect-square h-15 md:h-30 flex items-center">
                         <div class="w-full space-y-10">
-                            <p class="anim-in-up text-center text-3xl md:text-6xl flex items-center">n8n</p>
+                            <h4 class="anim-in-up text-center text-3xl md:text-6xl flex items-center">n8n</h4>
                             <div class="anim-in-up w-full bg-black/10 dark:bg-white/10 rounded-full h-1">
                                 <div class="skill-bar h-full bg-black dark:bg-white rounded-full w-0 relative" data-skill-bar-target="85">
                                     <p class="absolute flex gap-3 justify-between w-full bottom-2 text-base md:text-xl">
@@ -668,64 +671,64 @@
                         <!-- Item -->
                         <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
                             <img src="./assets/images/client-1.jpg" alt="alexander james" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                            <h6 class="text-2xl md:text-4xl">Alexander James</h6>
-                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Founder, NovaTech</p>
+                            <h5 class="text-2xl md:text-4xl">Alexander James</h5>
+                            <h6 class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Founder, NovaTech</h6>
                             <p class="font-light text-lg md:text-xl">The website Ovik created was beyond expectations. Clean design, smooth animations, and perfect responsiveness. He truly understood my vision and transformed it into something professional and engaging.</p>
                         </div>
                         <!-- Item -->
                         <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
                             <img src="./assets/images/client-2.jpg" alt="maximiliano cruz" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                            <h6 class="text-2xl md:text-4xl">Maximiliano Cruz</h6>
-                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Marketing Manager, BrightWave</p>
+                            <h5 class="text-2xl md:text-4xl">Maximiliano Cruz</h5>
+                            <h6 class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Marketing Manager, BrightWave</h6>
                             <p class="font-light text-lg md:text-xl">Working with Ovik was a delight. He delivered on time and kept me updated. The site looks amazing on both desktop and mobile, which boosted my client engagement significantly.</p>
                         </div>
                         <!-- Item -->
                         <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
                             <img src="./assets/images/client-3.jpg" alt="josephine pearl" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                            <h6 class="text-2xl md:text-4xl">Josephine Pearl</h6>
-                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Tech Entrepreneur, Cloudify</p>
+                            <h5 class="text-2xl md:text-4xl">Josephine Pearl</h5>
+                            <h6 class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Tech Entrepreneur, Cloudify</h6>
                             <p class="font-light text-lg md:text-xl">I have worked with several developers, but Ovik stands out. His professionalism, structured coding style, and attention to detail make him the perfect choice for long-term collaborations.</p>
                         </div>
                         <!-- Item -->
                         <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
                             <img src="./assets/images/client-4.jpg" alt="gabriella faith" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                            <h6 class="text-2xl md:text-4xl">Gabriella Faith</h6>
-                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Content Creator, PixelHive</p>
+                            <h5 class="text-2xl md:text-4xl">Gabriella Faith</h5>
+                            <h6 class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Content Creator, PixelHive</h6>
                             <p class="font-light text-lg md:text-xl">Ovik turned my rough ideas into a sleek website. His patience and creativity stood out. He ensured every detail matched my vision, making the final product highly impactful.</p>
                         </div>
                         <!-- Item -->
                         <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
                             <img src="./assets/images/client-5.jpg" alt="valentina grace" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                            <h6 class="text-2xl md:text-4xl">Valentina Grace</h6>
-                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Owner, TrendyMart</p>
+                            <h5 class="text-2xl md:text-4xl">Valentina Grace</h5>
+                            <h6 class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Owner, TrendyMart</h6>
                             <p class="font-light text-lg md:text-xl">From start to finish, the experience was smooth. My e-commerce store now loads faster, looks professional, and attracts more buyers. Ovik’s technical expertise truly made a difference.</p>
                         </div>
                         <!-- Item -->
                         <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
                             <img src="./assets/images/client-6.jpg" alt="sebastian leo" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                            <h6 class="text-2xl md:text-4xl">Sebastian Leo</h6>
-                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Consultant, StratEdge</p>
+                            <h5 class="text-2xl md:text-4xl">Sebastian Leo</h5>
+                            <h6 class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Consultant, StratEdge</h6>
                             <p class="font-light text-lg md:text-xl">Ovik is an excellent problem solver. His thoughtful suggestions improved my website’s usability and made it much more appealing. Highly professional, communicative, and trustworthy in every way.</p>
                         </div>
                         <!-- Item -->
                         <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
                             <img src="./assets/images/client-7.jpg" alt="seraphina claire" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                            <h6 class="text-2xl md:text-4xl">Seraphina Claire</h6>
-                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Creative Director, Visionary Lab</p>
+                            <h5 class="text-2xl md:text-4xl">Seraphina Claire</h5>
+                            <h6 class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Creative Director, Visionary Lab</h6>
                             <p class="font-light text-lg md:text-xl">Attention to detail is what makes Ovik stand out. Every section of my website feels polished and professional. He brought creativity and precision into the project beautifully.</p>
                         </div>
                         <!-- Item -->
                         <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
                             <img src="./assets/images/client-8.jpg" alt="anastasia rose" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                            <h6 class="text-2xl md:text-4xl">Anastasia Rose</h6>
-                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Blogger, LifeLens</p>
+                            <h5 class="text-2xl md:text-4xl">Anastasia Rose</h5>
+                            <h6 class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">Blogger, LifeLens</h6>
                             <p class="font-light text-lg md:text-xl">My blog now looks elegant and professional. The layout is responsive, user-friendly, and stylish. Ovik explained everything clearly, which made the process very smooth and stress-free.</p>
                         </div>
                         <!-- Item -->
                         <div class="swiper-slide !w-full md:!w-2/3 relative after:absolute after:rounded-full after:bg-light-devider dark:after:bg-dark-devider after:top-0 after:-left-0 px-6 md:px-12 py-6 after:h-full after:w-[3px]">
                             <img src="./assets/images/client-9.jpg" alt="nathaniel scott" class="rounded-full aspect-square h-20 md:h-25 mb-3">
-                            <h6 class="text-2xl md:text-4xl">Nathaniel Scott</h6>
-                            <p class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">App Developer, CodeNova</p>
+                            <h5 class="text-2xl md:text-4xl">Nathaniel Scott</h5>
+                            <h6 class="text-base md:text-xl mb-3 text-light-secondary-text dark:text-dark-secondary-text">App Developer, CodeNova</h6>
                             <p class="font-light text-lg md:text-xl">Ovik built a stylish portfolio website for me that perfectly showcases my apps. His design sense and technical execution gave my work a professional edge that I really needed.</p>
                         </div>
                     </div>
@@ -757,7 +760,7 @@
                                 <p class="text-5xl text-primary font-light">$</p>
                             </div>
                             <div class="flex flex-col justify-center">
-                                <p class="text-7xl leading-none">80</p>
+                                <h4 class="text-7xl leading-none">80</h4>
                             </div>
                             <div class="flex flex-col justify-end">
                                 <p class="text-2xl text-light-secondary-text dark:text-dark-secondary-text">/ project</p>
@@ -814,7 +817,7 @@
                                 <p class="text-5xl text-primary font-light">$</p>
                             </div>
                             <div class="flex flex-col justify-center">
-                                <p class="text-7xl leading-none">250</p>
+                                <h4 class="text-7xl leading-none">250</h4>
                             </div>
                             <div class="flex flex-col justify-end">
                                 <p class="text-2xl text-light-secondary-text dark:text-dark-secondary-text">/ project</p>
@@ -868,7 +871,7 @@
                                 <p class="text-5xl text-primary font-light">$</p>
                             </div>
                             <div class="flex flex-col justify-center">
-                                <p class="text-7xl leading-none">780</p>
+                                <h4 class="text-7xl leading-none">780</h4>
                             </div>
                             <div class="flex flex-col justify-end">
                                 <p class="text-2xl text-light-secondary-text dark:text-dark-secondary-text">/ project</p>
@@ -933,11 +936,11 @@
                 <!-- Form -->
                 <form class="space-y-6 md:space-y-12 lg:grid lg:grid-cols-2 lg:gap-x-6">
                     <!-- Input fields -->
-                    <input required id="userName" type="text" placeholder="Your Name*" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
-                    <input id="userCompany" type="text" placeholder="Your Company" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
-                    <input required id="userEmail" type="email" placeholder="Your Email*" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
-                    <input id="userPhone" type="tel" placeholder="Your Phone" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
-                    <textarea required id="userMessage" rows="4" placeholder="Your Message*" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full lg:col-span-2"></textarea>
+                    <input required id="formName" type="text" placeholder="Your Name*" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
+                    <input id="formCompany" type="text" placeholder="Your Company" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
+                    <input required id="formEmail" type="email" placeholder="Your Email*" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
+                    <input id="formPhone" type="tel" placeholder="Your Phone" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full">
+                    <textarea required id="formMessage" rows="4" placeholder="Your Message*" class="anim-in-up-group placeholder:text-light-secondary-text dark:placeholder:text-dark-secondary-text text-xl md:text-3xl focus:outline-none border-b-[2px] md:border-b-[3px] dark:border-dark-secondary-text border-light-secondary-text focus:border-black dark:focus:border-white w-full lg:col-span-2"></textarea>
                     <!-- Button -->
                     <div class="flex justify-between md:col-span-2 text-base -mt-3 md:-mt-6">
                         <button id="saveDraft" class="cursor-colorfull anim-in-up-group group flex relative w-max font-semibold items-center cursor-pointer gap-1 text-base bg-black dark:bg-white py-3 px-6 rounded-full text-white">
@@ -1052,7 +1055,7 @@
                 <!-- Copyright -->
                 <p class="anim-in-up text-black/70 dark:text-white/70 text-base md:text-lg text-center mt-12">
                     &copy; <span id="year"></span> 
-                    <a href="#" class="text-black dark:text-white font-medium cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all">
+                    <a href="#" class="cursor-colorfull text-black dark:text-white font-medium cursor-pointer w-max relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-black/30 dark:after:bg-white/30 after:w-full before:absolute before:left-0 before:bottom-0 before:h-[2px] before:rounded-full before:bg-black dark:before:bg-white before:w-0 hover:before:w-full before:transition-all">
                         CodeOVIK
                     </a>
                     . All rights reserved.

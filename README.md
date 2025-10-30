@@ -2,15 +2,22 @@
 
 OVIK is a Personal Portfolio website SASS template made for selling on Themeforest. Made with HTML and Tailwind CSS CLI.
 
+
 ### Links:
 [https://codeovik.github.io/ovik-html-tailwind/src](https://codeovik.github.io/ovik-html-tailwind/src)
+
 [https://ovik-html-tailwind.vercel.app](https://ovik-html-tailwind.vercel.app)
+
 
 ### Project timeline:
 24 sep, 2025 - v1 released in github
+
 28 September - 11 October, 2025 - Review for Themeforest and Hard Rejected
+
 12 October, 2025 - v2 start
-28 October, 2025 - v2 end
+
+30 October, 2025 - v2 end
+
 
 ### To run this on locally:
 1. Clone the repository and install dependencies
@@ -25,27 +32,70 @@ Run tailwind css compailor
 npm run dev
 ```
 
-### Emailjs body html code:
-```html
-<div style="font-family: system-ui, sans-serif, Arial; font-size: 12px;">
-<div><span style="font-family: tahoma, arial, helvetica, sans-serif;"><strong>{{user_name}}</strong> has sent a form in your portfolio website.</span></div>
-<div style="margin-top: 20px; padding: 15px 0; border-width: 1px 0; border-style: dashed; border-color: lightgrey;">
-<table style="width: 35.7254%; height: 87px;" role="presentation">
-<tbody>
-<tr style="height: 87px;">
-<td style="vertical-align: top; width: 14.0456%;">
-<div style="padding: 6px 10px; margin: 0 10px; background-color: aliceblue; border-radius: 5px; font-size: 26px;" role="img"><span style="font-family: tahoma, arial, helvetica, sans-serif;">👤</span></div>
-</td>
-<td style="vertical-align: top; width: 85.9578%;">
-<div style="color: #2c3e50; font-size: 16px;"><span style="font-family: tahoma, arial, helvetica, sans-serif;"><strong>Name:</strong> {{user_name}}</span></div>
-<div style="color: #2c3e50; font-size: 16px;"><span style="font-family: tahoma, arial, helvetica, sans-serif;"><strong>Company:</strong> {{user_company}}</span></div>
-<div style="color: #2c3e50; font-size: 16px;"><span style="font-family: tahoma, arial, helvetica, sans-serif;"><strong>Email:</strong> {{user_email}}</span></div>
-<div style="color: #2c3e50; font-size: 16px;"><span style="font-family: tahoma, arial, helvetica, sans-serif;"><strong>Phone:</strong> {{user_phone}}</span></div>
-</td>
-</tr>
-</tbody>
-</table>
-<p><span style="font-size: 14pt; font-family: tahoma, arial, helvetica, sans-serif;"><strong>Message:</strong> {{user_message}}</span></p>
+
+### EmailJS HTML template code
+Contact Template that will came to admin
+``` html
+<div style="font-family: system-ui, sans-serif, Arial; font-size:14px; max-width:500px; margin:0 auto; padding:24px; background:#fafafa; color:#111; border-radius:12px;">
+  <!-- Header -->
+  <div style="font-size:15px; margin-bottom:20px; line-height:1.4;">
+    <strong>{{user_name}}</strong> just reached out through your portfolio website!
+  </div>
+  <!-- Card -->
+  <div style="background:#f5f5f5; padding:20px; border-radius:10px; border: #ddd 3px solid;">
+    <!-- Info Row -->
+    <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom:15px;">
+      <div style="width:50px; height:50px; border-radius:10px; display:flex; justify-content:center; align-items:center; font-size:26px; background:#eee; flex-shrink:0;">
+        👤
+      </div>
+      <div>
+        <p style="margin:5px 0; font-size:15px;"><strong>Name:</strong> {{user_name}}</p>
+        <p style="margin:5px 0; font-size:15px;"><strong>Company:</strong> {{user_company}}</p>
+        <p style="margin:5px 0; font-size:15px;"><strong>Email:</strong> {{user_email}}</p>
+        <p style="margin:5px 0; font-size:15px;"><strong>Phone:</strong> {{user_phone}}</p>
+      </div>
+    </div>
+    <!-- Message -->
+    <div style="border-top:1px dashed #ccc; margin-top:15px; padding-top:10px;">
+      <p style="margin:0 0 5px 0;"><strong>💬 Message:</strong></p>
+      <p style="background:#f3f3f3; padding:12px 15px; border-radius:8px; margin-top:10px; line-height:1.4;">{{user_message}}</p>
+    </div>
+    <!-- Action -->
+    <div style="text-align:center; margin-top:15px;">
+      <a href="mailto:{{user_email}}"
+        target="blank"
+        style="display:inline-block; text-decoration:none; color:#000; border:1px solid #000; padding:8px 14px; border-radius:8px; font-weight:bold;"
+        onmouseover="this.style.background='#000'; this.style.color='#fff';"
+        onmouseout="this.style.background=''; this.style.color='#000';">
+        Reply now
+      </a>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div style="text-align:center; font-size:12px; opacity:0.7; margin-top:20px;">
+    <p>This message was sent via your portfolio contact form.</p>
+    <p><span style="font-weight:bold; color:#000;">CodeOVIK</span> - <em>Code Today, Rule Tomorrow</em></p>
+  </div>
 </div>
+```
+Auto replay that will go send to user
+``` html
+<div style="font-family: system-ui, sans-serif, Arial; font-size:14px; max-width:500px; margin:0 auto; padding:24px; background:#fafafa; color:#111111; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+  <!-- Header -->
+  <div style="font-size:15px; margin-bottom:15px; line-height:1.4;">
+    Hello <strong>{{user_name}}</strong>,
+  </div>
+  <!-- Message -->
+  <div style="background:#f5f5f5; padding:20px; border-radius:10px; border: #ddd 3px solid;">
+    Thank you for contacting me! I have received your message and I truly appreciate you reaching out.<br><br>
+    I will review your message carefully and get back to you as soon as possible.<br><br>
+    In the meantime, feel free to explore my portfolio or check out my latest projects. I look forward to connecting with you soon!
+  </div>
+  <!-- Footer -->
+  <div style="font-size:12px; opacity:0.7; line-height:1.4;">
+    Best regards,<br>
+    <strong>Code Ovik</strong><br>
+    <em>Code Today, Rule Tomorrow</em>
+  </div>
 </div>
 ```
