@@ -2,28 +2,21 @@
 
 OVIK is a Personal Portfolio website SASS template made for selling on Themeforest. Made with HTML and Tailwind CSS CLI.
 
-
 ### Links:
-[https://codeovik.github.io/ovik-html-tailwind/src](https://codeovik.github.io/ovik-html-tailwind/src)
-
-[https://ovik-html-tailwind.vercel.app](https://ovik-html-tailwind.vercel.app)
-
+- [https://codeovik.github.io/ovik-html-tailwind/src](https://codeovik.github.io/ovik-html-tailwind/src)
+- [https://ovik-html-tailwind.vercel.app](https://ovik-html-tailwind.vercel.app)
 
 ### Project timeline:
-24 sep, 2025 - v1 released in github
-
-28 September - 11 October, 2025 - Review for Themeforest and Hard Rejected
-
-12 October, 2025 - v2 start
-
-30 October, 2025 - v2 end
-
+- 24 sep, 2025 - v1 released in github
+- 28 September - 11 October, 2025 - Review for Themeforest and Hard Rejected
+- 12 October, 2025 - v2 start
+- 30 October, 2025 - v2 end
 
 ### To run this on locally:
 1. Clone the repository and install dependencies
 ```bash
 git clone https://github.com/codeovik/ovik-portfolio-html-2.git
-cd ovik-portfolio-html-2
+cd ovik-portfolio-html-tailwind
 npm i
 ```
 
@@ -31,7 +24,6 @@ Run tailwind css compailor
 ```bash
 npm run dev
 ```
-
 
 ### EmailJS HTML template code
 Contact Template that will came to admin
