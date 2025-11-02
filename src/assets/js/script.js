@@ -206,16 +206,18 @@ document.fonts.ready.then(() => {
   });
 });
 // text scrub opacity
-document.querySelectorAll(".text-scrub").forEach(el => {
-  gsap.from(new SplitText(el, { type: "words, chars" }).chars, {
-    stagger: 0.05,
-    opacity: 0.3,
-    scrollTrigger: {
-      trigger: el,
-      start: "top 80%",
-      end: "top 20%",
-      scrub: 1,
-    },
+document.fonts.ready.then(() => {
+  document.querySelectorAll(".text-scrub").forEach(el => {
+    gsap.from(new SplitText(el, { type: "words, chars" }).chars, {
+      stagger: 0.05,
+      opacity: 0.3,
+      scrollTrigger: {
+        trigger: el,
+        start: "top 80%",
+        end: "top 20%",
+        scrub: 1,
+      },
+    });
   });
 });
 
@@ -419,31 +421,37 @@ setTimeout(() => {
 }, 2500); // delay
 
 // name animation
-gsap.from(new SplitText("#heroTitle", { type: "chars" }).chars, {
-  x: 100,
-  opacity: 0,
-  stagger: 0.05,
-  delay: 1,
-  duration: 2,
-  ease: "power4.out",
+document.fonts.ready.then(() => {
+  gsap.from(new SplitText("#heroTitle", { type: "chars" }).chars, {
+    x: 100,
+    opacity: 0,
+    stagger: 0.05,
+    delay: 1,
+    duration: 2,
+    ease: "power4.out",
+  });
 });
 // skill animation
-gsap.from(new SplitText("#typewriterContainer", { type: "chars" }).chars, {
-  x: 100,
-  opacity: 0,
-  stagger: 0.05,
-  delay: 1.7,
-  duration: 2,
-  ease: "power4.out",
+document.fonts.ready.then(() => {
+  gsap.from(new SplitText("#typewriterContainer", { type: "chars" }).chars, {
+    x: 100,
+    opacity: 0,
+    stagger: 0.05,
+    delay: 1.7,
+    duration: 2,
+    ease: "power4.out",
+  });
 });
 // description animation
-gsap.from(new SplitText("#heroDescription", { type: "lines" }).lines, {
-  x: 100,
-  opacity: 0,
-  stagger: 0.05,
-  duration: 2,
-  delay: 2.4,
-  ease: "power4.out",
+document.fonts.ready.then(() => {
+  gsap.from(new SplitText("#heroDescription", { type: "lines" }).lines, {
+    x: 100,
+    opacity: 0,
+    stagger: 0.05,
+    duration: 2,
+    delay: 2.4,
+    ease: "power4.out",
+  });
 });
 // social icons animation
 gsap.from("#heroSocial a", {
