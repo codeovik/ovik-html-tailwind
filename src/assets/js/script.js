@@ -155,6 +155,17 @@ gsap.ticker.add((time) => {
 // lag smoothing off
 gsap.ticker.lagSmoothing(0);
 
+// smooth scroll on button click
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'))
+    if (target) {
+      e.preventDefault()
+      lenis.scrollTo(target, { duration: 1.5 })
+    }
+  })
+})
+
 /* element scroll animation
 ------------------------------------------------------------*/
 // fade in up
@@ -381,10 +392,10 @@ document.getElementById("menuBar").addEventListener("wheel", (e) => {
   document.getElementById("menuBar").scrollTop += e.deltaY;
 });
 
-// active link
 let links = document.querySelectorAll("nav ul li a"); // get all nav links
 const sections = document.querySelectorAll("section, header"); // get all sections
 
+// active link
 window.addEventListener('scroll', () => {
   let scrollPos = window.scrollY + 150;
   sections.forEach((section, index) => {
@@ -419,62 +430,6 @@ setTimeout(() => {
     cursorChar: '|', // cusor icon
   })
 }, 2500); // delay
-
-// name animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#heroTitle", { type: "chars" }).chars, {
-    x: 100,
-    opacity: 0,
-    stagger: 0.05,
-    delay: 1,
-    duration: 2,
-    ease: "power4.out",
-  });
-});
-// skill animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#typewriterContainer", { type: "chars" }).chars, {
-    x: 100,
-    opacity: 0,
-    stagger: 0.05,
-    delay: 1.7,
-    duration: 2,
-    ease: "power4.out",
-  });
-});
-// description animation
-document.fonts.ready.then(() => {
-  gsap.from(new SplitText("#heroDescription", { type: "lines" }).lines, {
-    x: 100,
-    opacity: 0,
-    stagger: 0.05,
-    duration: 2,
-    delay: 2.4,
-    ease: "power4.out",
-  });
-});
-// social icons animation
-gsap.from("#heroSocial a", {
-  x: 100,
-  opacity: 0,
-  delay: 2.9,
-  stagger: 0.05,
-  duration: 1,
-  ease: "power4.out",
-})
-// button animation
-gsap.set(".heroBtn", {
-  x: 100,
-  opacity: 0,
-})
-gsap.to(".heroBtn", {
-  opacity: 1,
-  delay: 3.2,
-  stagger: 0.1,
-  duration: 1,
-  ease: "power4.out",
-  x: 0,
-})
 
 /* achievements section
 ------------------------------------------------------------*/
@@ -567,18 +522,20 @@ gsap.matchMedia().add("(min-width: 1024px)", () => {
 })
 
 // image parallax
-gsap.utils.toArray("#portfolio article").forEach(article => { // paramer is all portfolio card
-  let img = article.querySelector("img"); // get all portfolio image
-  let container = article.querySelector("div"); // get all portfolio image container that makes overfollow and rounded to image
-  gsap.to(img, {
-    y: -(img.offsetHeight - container.offsetHeight), // parallax: image height - conatiner height
-    ease: "none",
-    scrollTrigger: {
-      trigger: article,
-      start: "top bottom",
-      end: "bottom top",
-      scrub: true
-    }
+gsap.matchMedia().add("(min-width: 1024px)", () => {
+  gsap.utils.toArray("#portfolio article").forEach(article => { // paramer is all portfolio card
+    let img = article.querySelector("img"); // get all portfolio image
+    let container = article.querySelector("div"); // get all portfolio image container that makes overfollow and rounded to image
+    gsap.to(img, {
+      y: -(img.offsetHeight - container.offsetHeight), // parallax: image height - conatiner height
+      ease: "none",
+      scrollTrigger: {
+        trigger: article,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
   });
 });
 
