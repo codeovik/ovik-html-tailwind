@@ -1,4 +1,7 @@
-/* table of contents:
+/*
+Template Name: OVIK - Personal Portfolio HTML Tailwind Template
+
+Table of contents:
 01 - Dark mode
 02 - Cursor follower
 03 - Background cursor follower
@@ -29,121 +32,118 @@ if (localStorage.getItem("theme") === "dark") {
   document.documentElement.classList.add("dark");
 }
 // when click to dark/light mode button
-document.getElementById("darkToggle").addEventListener("click", () => {
+let themeToggle = document.getElementById("themeToggle");
+themeToggle.addEventListener("click", () => {
   document.documentElement.classList.toggle("dark"); // toggle "dark" class in <html> tag
   document.documentElement.classList.contains("dark") ? localStorage.setItem("theme", "dark") : localStorage.setItem("theme", "light"); // save theme in local store
 });
 
 /* cursor follower
 ------------------------------------------------------------*/
-let cursorFollower = document.querySelector("#cursorFollower");
-let primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim(); // get primary color from css varriable
+let cursor = document.querySelector("#cursor");
 
-// follow on mouse move
+// default
 document.addEventListener("mousemove", (e) => {
-  // only for desktop devices
   gsap.matchMedia().add("(min-width: 1024px)", () => {
-    cursorFollower.style.display = "flex" // visible
-    gsap.to(cursorFollower, {
-      x: e.clientX - 8, // center in x axis
-      y: e.clientY - 8, // center in y axis
-      duration: 1, // speed
-      ease: "power4.out",
+    gsap.to(cursor, {
+      x: e.clientX,
+      y: e.clientY,
+      duration: 0.5,
+      ease: "back.out",
     });
+    cursor.style.display = "flex"
   })
-});
+})
 
-// in button and links
-document.querySelectorAll(".cursor-colorfull, .cursor-black-white").forEach(e => {
-  // when mouse enter
-  e.addEventListener("mouseenter", (e) => {
-    gsap.to(cursorFollower, {
-      scale: 4,
+// in buttons and links
+let butonAndLinks = document.querySelectorAll(".cursorEffectBtn");
+butonAndLinks.forEach(e => {
+  e.addEventListener("mouseenter", () => {
+    gsap.killTweensOf(cursor);
+    gsap.to(cursor, {
+      height: 80,
       opacity: 0.3,
-      backgroundColor: e.currentTarget.classList.contains("cursor-colorfull") ? primaryColor: "", // if button class is "cursor-colorfull": cursor color is brand color. otherwise not change of cursor color
     });
   });
-  // when mouse leave: default style
-  e.addEventListener("mouseleave", (e) => {
-    gsap.to(cursorFollower, {
-      scale: 1,
+  e.addEventListener("mouseleave", () => {
+    gsap.killTweensOf(cursor);
+    gsap.to(cursor, {
+      height: 16,
       opacity: 1,
-      backgroundColor: localStorage.getItem("theme") === "dark" ? "#ffffff" : "#000000", // background color based on theme
     });
   });
 });
 
 // in portfolio images
-document.querySelectorAll("#portfolio article img").forEach(e => {
-  // when mouse enter
-  e.addEventListener("mouseenter", (e) => {
-    cursorFollower.innerHTML = `<p class="text-[3px] text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">View More</p>`; // cursor text
-    gsap.to(cursorFollower, {
-      scale: 7,
-      backdropFilter: "blur(2px)", // blur effect
-      backgroundColor: "#00000050"
+let portfolioImages = document.querySelectorAll(".portfolioImage");
+portfolioImages.forEach(e => {
+  let timeoutId;
+  e.addEventListener("mouseenter", () => {
+    timeoutId = setTimeout(() => {
+      cursor.innerHTML = "View<br>More";
+    }, 200);
+    gsap.to(cursor, {
+      height: 110,
     });
   });
-  // when mouse leave: default style
-  e.addEventListener("mouseleave", (e) => {
-    cursorFollower.innerHTML = ""; // default cursor text
-    gsap.to(cursorFollower, {
-      scale: 1,
-      opacity: 1,
-      backgroundColor: localStorage.getItem("theme") === "dark" ? "#ffffff" : "#000000", // default background color based on theme
+  e.addEventListener("mouseleave", () => {
+    clearTimeout(timeoutId);
+    cursor.innerHTML = "";
+    gsap.to(cursor, {
+      height: 16,
     });
   });
 });
 
 // in email copy inside form section
 let copyElEmail = document.getElementById("copyEmail");
-
-// when mouse enter
-copyElEmail.addEventListener("mouseenter", (e) => {
-  cursorFollower.innerHTML = `<p class="text-[3px] text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">Copy Email</p>`; // add "view more" text
-  gsap.to(cursorFollower, {
-    scale: 7, // scale up
-    backdropFilter: "blur(3px)", // blur effect
-    backgroundColor: "#00000050" // background
+let timeoutId;
+copyElEmail.addEventListener("mouseenter", () => {
+  timeoutId = setTimeout(() => {
+    cursor.innerHTML = "Copy Email";
+  }, 200);
+  gsap.to(cursor, {
+    height: 110,
   });
 });
-// when mouse leave: default style
-copyElEmail.addEventListener("mouseleave", (e) => {
-  cursorFollower.innerHTML = "";
-  gsap.to(cursorFollower, {
-    scale: 1,
-    backdropFilter: "blur(0px)",
-    backgroundColor: localStorage.getItem("theme") === "dark" ? "#ffffff" : "#000000", // default background color based on theme
-  });
+copyElEmail.addEventListener("click", () => {
+  cursor.innerHTML = "Email Copied";
 });
-copyElEmail.addEventListener("click", () => { // when click
-  cursorFollower.innerHTML = `<p class="text-[3px] text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">Email Copied!</p>`; // cursor text
+copyElEmail.addEventListener("mouseleave", () => {
+  clearTimeout(timeoutId)
+  cursor.innerHTML = "";
+  gsap.to(cursor, {
+    height: 16,
+  });
 });
 
 /* background cursor follower
 ------------------------------------------------------------*/
 let bgCursor = document.querySelector("#bgCursor");
-// rotate
-gsap.to(bgCursor, {
-  rotate: 360,
-  duration: 5,
-  repeat: -1,
-  ease: "linear",
-});
-// follow on mouse move
-document.addEventListener("mousemove", (e) => {
+// only for gradient demo
+if (bgCursor) {
+  // rotate
   gsap.to(bgCursor, {
-    x: e.clientX - 200, // center in x axis
-    y: e.clientY - 200, // center in y axis
-    duration: 10, // speed
-  })
-});
+    rotate: 360,
+    duration: 5,
+    repeat: -1,
+    ease: "linear",
+  });
+  // follow on mouse move
+  document.addEventListener("mousemove", (e) => {
+    gsap.to(bgCursor, {
+      x: e.clientX - 400, // center in x axis
+      y: e.clientY - 400, // center in y axis
+      duration: 7, // speed
+    })
+  });
+}
 
 /* smooth scroll
 ------------------------------------------------------------*/
 // lenis init
 const lenis = new Lenis({
-  duration: 0.7, // speed
+  duration: 1, // speed
   easing: (t) => t * (2 - t), // easing in graph
 });
 // GSAP sync
@@ -168,16 +168,15 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 /* element scroll animation
 ------------------------------------------------------------*/
-// fade in up
-document.querySelectorAll(".anim-in-up").forEach((e=> {
-  // initial 
+// fade up global animation
+let animUpElements = document.querySelectorAll(".animUp");
+animUpElements.forEach((e=> {
   gsap.fromTo(e, {
     opacity: 0,
     y: 50,
     duration: 0.5,
     ease: "linear"
   },
-  // final
   {
     y: 0,
     opacity: 1,
@@ -187,26 +186,29 @@ document.querySelectorAll(".anim-in-up").forEach((e=> {
     }
   })
 }));
-// fade in up for multiple element element in a row to delay effect
-ScrollTrigger.batch(".anim-in-up-group", {
-  interval: 0.2, // check scroll everytime dealy
-  onEnter: e => gsap.fromTo(e, // in viewport
-    { y: 50, opacity: 0 }, // initial style
-    { y: 0, opacity: 1, ease: "sine", stagger: 0.2 } // final style
+// fade up group global animation
+let animUpGroupElements = document.querySelectorAll(".animUpGroup");
+ScrollTrigger.batch(animUpGroupElements, {
+  interval: 0.2,
+  onEnter: e => gsap.fromTo(e,
+    { y: 50, opacity: 0 },
+    { y: 0, opacity: 1, ease: "sine", stagger: 0.2 }
   ),
-  onLeaveBack: e => gsap.fromTo(e, // out viewport
-    { y: 0, opacity: 1 }, // initial style
-    { y: 50, opacity: 0 } // final style
+  onLeaveBack: e => gsap.fromTo(e,
+    { y: 0, opacity: 1 },
+    { y: 50, opacity: 0 }
   )
 });
-// text slide
+// text slide global animation
+let textSlideElements = document.querySelectorAll(".text-slide");
 document.fonts.ready.then(() => {
-  document.querySelectorAll(".text-slide").forEach(el => {
+  textSlideElements.forEach(el => {
     gsap.from(new SplitText(el, { type: "words, chars" }).chars, {
       x: 100,
       opacity: 0,
       stagger: 0.03,
       duration: 1,
+      delay: 0.5,
       ease: "power4.out",
       scrollTrigger: {
         trigger: el,
@@ -217,8 +219,9 @@ document.fonts.ready.then(() => {
   });
 });
 // text scrub opacity
+let textScrubElements = document.querySelectorAll(".text-scrub");
 document.fonts.ready.then(() => {
-  document.querySelectorAll(".text-scrub").forEach(el => {
+  textScrubElements.forEach(el => {
     gsap.from(new SplitText(el, { type: "words, chars" }).chars, {
       stagger: 0.05,
       opacity: 0.3,
@@ -235,10 +238,9 @@ document.fonts.ready.then(() => {
 /* go top with smooth scroll
 ------------------------------------------------------------*/
 const goTopBtn = document.getElementById("goTopBtn"); // get go top element
-const scrollProgress = document.getElementById("scrollProgress"); // get scroll progress
+
 lenis.on("scroll", () => {
   const scrolled = lenis.scroll; // scrolled from y axis
-  // when scroll greater than 250px from top: hide
   if (scrolled > 250) {
     goTopBtn.classList.remove("opacity-0", "translate-y-10", "pointer-events-none");
     goTopBtn.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
@@ -310,64 +312,64 @@ menuTimeLine.to("#menuContainer", {
   },
 });
 // menu slide and items animation
-menuTimeLine.to("#menuBar", { // menu bar: go right
+menuTimeLine.to("#menuBar", {
   right: 0,
   duration: 0.2,
 }, "<");
-menuTimeLine.to("#toggleMenu span:nth-of-type(1)", { // menu toggle button first stick: rotate and go center
+menuTimeLine.to("#toggleMenu span:nth-of-type(1)", {
   rotation: 45,
   top: "50%",
   transformOrigin: "50% 50%",
 }, "<");
-menuTimeLine.to("#toggleMenu span:nth-of-type(2)", { // menu toggle button last stick: rotate and go center
+menuTimeLine.to("#toggleMenu span:nth-of-type(2)", {
   rotation: -45,
   top: "50%",
   transformOrigin: "50% 50%",
 }, "<");
-gsap.set("#menuBar button", { // dark/ligh toggle button: initial style: opacity and position
+gsap.set("#menuBar button", {
   y: 0,
   opacity: 0
 })
-menuTimeLine.to("#menuBar button", { // dark/light mode toggle button final styling: final style: opacity and position
+menuTimeLine.to("#menuBar button", {
   y: -20,
   opacity: 1,
   duration: 0.05,
 });
-menuTimeLine.from("#manuListTitle", { // menu links title: opacity and position
+menuTimeLine.from("#manuListTitle", {
   y: 30,
   opacity: 0,
   duration: 0.05,
 });
-menuTimeLine.from("#manuList li", { // menu links: opacity and position
+menuTimeLine.from("#manuList li", {
   y: 30,
   stagger: 0.04,
   opacity: 0,
   duration: 0.5,
 });
-menuTimeLine.from("#manuSocialMediaTitle", { // secial media title: opacity and position
+menuTimeLine.from("#manuSocialMediaTitle", {
   y: 30,
   opacity: 0,
   duration: 0.05,
 });
-menuTimeLine.from("#manuSocialMedia a", { // social media: opacity and position
+menuTimeLine.from("#manuSocialMedia a", {
   opacity: 0,
   y: 30,
   stagger: 0.04,
   duration: 0.05,
 });
-menuTimeLine.from("#menuContactTitle", { // contact title: opacity and position
+menuTimeLine.from("#menuContactTitle", {
   y: 30,
   opacity: 0,
   duration: 0.05,
 });
-menuTimeLine.from("#menuContact a", { // contact items: opacity and position
+menuTimeLine.from("#menuContact a", {
   opacity: 0,
   y: 30,
   stagger: 0.04,
   duration: 0.05,
 });
 
-menuTimeLine.reverse(); // reverse timeline by default
+menuTimeLine.reverse();
 
 // when click to menu toggle button
 document.getElementById("toggleMenu").addEventListener("click", () => {
@@ -386,7 +388,7 @@ document.getElementById("menuContainer").addEventListener("click", () => {
   menuTimeLine.reverse(); // reverse timeline
 });
 
-// off lenis smooth scroll on menubar scroll
+// off lenis smooth scroll on menubar scrolling
 document.getElementById("menuBar").addEventListener("wheel", (e) => {
   e.stopPropagation();
   document.getElementById("menuBar").scrollTop += e.deltaY;
@@ -397,17 +399,14 @@ const sections = document.querySelectorAll("section, header"); // get all sectio
 
 // active link
 window.addEventListener('scroll', () => {
-  let scrollPos = window.scrollY + 150;
+  let scrollPos = window.scrollY + 150; // current scroll position with offset
   sections.forEach((section, index) => {
     if(scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-      // remove 'text-primary' from all links
       links.forEach(link => link.classList.remove('text-primary'));
-      // add 'text-primary' to current link
       links[index].classList.add('text-primary');
     }
   });
 });
-
 
 // when nav link e click, reverse animation
 links.forEach(link => {
@@ -419,17 +418,15 @@ links.forEach(link => {
 /* hero section
 ------------------------------------------------------------*/
 // typewriter effect
-setTimeout(() => {
-  var typed = new Typed('#typewriter', { // typd.js init
-    stringsElement: '#typed-strings', // get typewriter content
-    typeSpeed: 100, // type speed
-    backSpeed: 50, // type speed in back
-    backDelay: 1000, // typewriter stable time
-    loop: true, // infinite
-    showCursor: true, // enable cursor
-    cursorChar: '|', // cusor icon
-  })
-}, 2500); // delay
+var typed = new Typed('#typewriter', { // typd.js init
+  stringsElement: '#typedStrings', // get typewriter content
+  typeSpeed: 50, // type speed
+  backSpeed: 50, // type speed in back
+  backDelay: 1500, // typewriter stable time
+  loop: true, // infinite
+  showCursor: true, // enable cursor
+  cursorChar: '_', // cusor icon
+});
 
 /* achievements section
 ------------------------------------------------------------*/
@@ -483,7 +480,7 @@ document.querySelectorAll('[data-target-achivements]').forEach(function (el) {
 /* partner section
 ------------------------------------------------------------*/
 // logo slide
-var swiper = new Swiper(".logo-slide", { // swiper js init
+var swiper = new Swiper(".logoSlide", { // swiper js init
   slidesPerView: "auto", // automatic number of slider item visible by their width
   loop: true, // infinite slide
   spaceBetween: 48, // slide item space
@@ -497,7 +494,7 @@ var swiper = new Swiper(".logo-slide", { // swiper js init
 
 /* exprience section
 ------------------------------------------------------------*/
-// scroll pin
+// scroll pin with text and content
 gsap.matchMedia().add("(min-width: 1024px)", () => {
   ScrollTrigger.create({
     trigger: "#exprienceCardContainer",
@@ -510,7 +507,7 @@ gsap.matchMedia().add("(min-width: 1024px)", () => {
 
 /* portfolio section
 ------------------------------------------------------------*/
-// scroll pin
+// scroll pin with text and content
 gsap.matchMedia().add("(min-width: 1024px)", () => {
   ScrollTrigger.create({
     trigger: "#portfolioCardContainer",
@@ -521,11 +518,12 @@ gsap.matchMedia().add("(min-width: 1024px)", () => {
   })
 })
 
-// image parallax
+// image parallax only for desktop
 gsap.matchMedia().add("(min-width: 1024px)", () => {
-  gsap.utils.toArray("#portfolio article").forEach(article => { // paramer is all portfolio card
-    let img = article.querySelector("img"); // get all portfolio image
-    let container = article.querySelector("div"); // get all portfolio image container that makes overfollow and rounded to image
+  let portfolioItems = document.querySelectorAll(".portfolioItem");
+  gsap.utils.toArray(portfolioItems).forEach(article => { // paramer is all portfolio card
+    let img = article.querySelector(".portfolioImage"); // get portfolio image
+    let container = article.querySelector(".portfolioImageContainer"); // get portfolio image container that makes overfollow and rounded to image
     gsap.to(img, {
       y: -(img.offsetHeight - container.offsetHeight), // parallax: image height - conatiner height
       ease: "none",
@@ -542,7 +540,7 @@ gsap.matchMedia().add("(min-width: 1024px)", () => {
 /* testimonial section
 ------------------------------------------------------------*/
 // slide
-var swiper = new Swiper(".review-slide", {
+var swiper = new Swiper(".reviewSlide", {
   slidesPerView: "auto",
   spaceBetween: 1,
   loop: true,
@@ -568,13 +566,13 @@ gsap.matchMedia().add("(min-width: 1024px)", () => {
 })
 
 // skill inear progress bar
-const bars = document.querySelectorAll(".skill-bar");
-  bars.forEach((bar) => {
+const skillProgressBar = document.querySelectorAll(".skillProgressBar");
+  skillProgressBar.forEach((bar) => {
     gsap.fromTo(bar, {
       width: "0%"
     },
     {
-      width: bar.dataset.skillBarTarget + "%",
+      width: bar.dataset.skillProgressBarTarget + "%",
       duration: 3,
       delay: 0.5,
       ease: "power3.out",
@@ -587,7 +585,7 @@ const bars = document.querySelectorAll(".skill-bar");
   );
 });
 
-// skill percentage
+// skill number percentage
 const skillPercentageTarget = document.querySelectorAll("[data-skill-percentage-target]"); // get all skill percentage numbers
   skillPercentageTarget.forEach(el => {
     const target = +el.getAttribute("data-skill-percentage-target");
@@ -617,12 +615,12 @@ const skillPercentageTarget = document.querySelectorAll("[data-skill-percentage-
 /* contact section
 ------------------------------------------------------------*/
 // save draft data to local storage
-let saveDraft = document.querySelector("#saveDraft")
+let formSaveDraft = document.querySelector("#formSaveDraft")
 // when click "save draft" button
-saveDraft.addEventListener("click", function (e) {
+formSaveDraft.addEventListener("click", function (e) {
   e.preventDefault(); // off page load
-  const inputs = document.querySelectorAll("form input, form textarea"); // get all input
-  const data = {}; // initial data array
+  const inputs = document.querySelectorAll(".inputFields"); // get all input
+  const data = {}; // initial data array for send to local storage
   inputs.forEach((field, i) => {
     const key = field.placeholder || `field${i}`; // get array key from input placeholder or index number like: 0, 1, 2..
     data[key] = field.value; //get array value
@@ -682,13 +680,13 @@ const emailjsTemplateId = "EMAIL_JS_TEMPLATE_ID_HERE";
   emailjs.init(emailjsPublicKey)
 })();
 
-const submitBtn = document.querySelector("form button[type='submit']"); // get submit btn
+const formSubmit = document.querySelector("#formSubmit"); // get submit btn
 // when click to submit button
-submitBtn.addEventListener('click', function (e) {
-  submitBtn.disabled = true; // not clickable
-  submitBtn.style.opacity = "0.5"; // opacity styling
-  submitBtn.style.cursor = "not-allowed"; // cursor styling
-  submitBtn.querySelector("span:nth-of-type(1)").textContent = "Sending..."; // button text when submit processing
+formSubmit.addEventListener('click', function (e) {
+  formSubmit.disabled = true; // not clickable
+  formSubmit.style.opacity = "0.5"; // opacity styling
+  formSubmit.style.cursor = "not-allowed"; // cursor styling
+  formSubmit.querySelector("span:nth-of-type(1)").textContent = "Sending..."; // button text when submit processing
 
   e.preventDefault(); // off page load
 
@@ -739,19 +737,19 @@ submitBtn.addEventListener('click', function (e) {
     });
     document.querySelector("form").reset(); // input fields reset in client side
     // button style: default
-    submitBtn.disabled = false;
-    submitBtn.style.opacity = "1";
-    submitBtn.style.cursor = "pointer";
-    submitBtn.querySelector("span:nth-of-type(1)").textContent = "Send Another";
+    formSubmit.disabled = false;
+    formSubmit.style.opacity = "1";
+    formSubmit.style.cursor = "pointer";
+    formSubmit.querySelector("span:nth-of-type(1)").textContent = "Send Another";
   })
   // error responce
   .catch(function (error) {
     console.log("Error to send mesage: " + error);
     // button style
-    submitBtn.disabled = false;
-    submitBtn.style.opacity = "1";
-    submitBtn.style.cursor = "pointer";
-    submitBtn.querySelector("span:nth-of-type(1)").textContent = "Try Again";
+    formSubmit.disabled = false;
+    formSubmit.style.opacity = "1";
+    formSubmit.style.cursor = "pointer";
+    formSubmit.querySelector("span:nth-of-type(1)").textContent = "Try Again";
     // pop up modal
     let formErrorPopUp = document.querySelector("#formErrorPopUp");
     // visible
@@ -794,8 +792,10 @@ copyElEmail.addEventListener("click", () => { // when click
 
 /* faq section
 ------------------------------------------------------------*/
+let faqQuestions = document.querySelectorAll(".faqQuestion");
+let faqAnswers = document.querySelectorAll(".faqAnswer");
 // faq toggle
-document.querySelectorAll(".faq-question").forEach((question) => {
+faqQuestions.forEach((question) => {
   question.addEventListener("click", () => { // when click to any faq
     const answer = question.nextElementSibling; // get corresponding answer
     const icon = question.querySelector(".icon"); // get icon
@@ -806,7 +806,7 @@ document.querySelectorAll(".faq-question").forEach((question) => {
       return;
     }
     // hide all other answers
-    document.querySelectorAll(".faq-answer").forEach((e) => {
+    faqAnswers.forEach((e) => {
       e.classList.remove("max-h-[200px]", "py-4");
       e.previousElementSibling.querySelector(".icon").textContent = "+";
     });
@@ -819,4 +819,5 @@ document.querySelectorAll(".faq-question").forEach((question) => {
 /* footer
 ------------------------------------------------------------*/
 // dynamic year
-document.querySelector("#year").innerHTML = new Date().getFullYear();
+let currentYear = document.querySelector("#currentYear");
+currentYear.innerHTML = new Date().getFullYear();

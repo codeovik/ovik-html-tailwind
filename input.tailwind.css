@@ -4,7 +4,7 @@
 /* theme variable  */
 @theme {
   /* brand */
-  --color-primary: #86EFAC; /* brand color */
+  --color-primary: #8cefac; /* brand color */
   --color-brand-contrast: black; /* black or white based on brand color for button and links which background is brand color */
 
   /* text */
@@ -21,32 +21,30 @@
 
   /* utilities */
   --default-transition-duration: 0.5s; /* transition speed */
-  --breakpoint-md: 40rem;
-  /* --breakpoint-xs: 30rem; */
 }
 
-/* fonts */
+/* fonts: light, regular, medium, semibold and bold */
 @font-face {
-  font-family: "FunnelDisplay";
-  src: url("../fonts/FunnelDisplay-Light.ttf") format("truetype");
+  font-family: "Sora";
+  src: url("../fonts/Sora-Light.ttf") format("truetype");
   font-weight: 300;
 }
 @font-face {
-  font-family: "FunnelDisplay";
-  src: url("../fonts/FunnelDisplay-Regular.ttf") format("truetype");
+  font-family: "Sora";
+  src: url("../fonts/Sora-Regular.ttf") format("truetype");
   font-weight: 400;
 }
 @font-face {
-  font-family: "FunnelDisplay";
-  src: url("../fonts/FunnelDisplay-Medium.ttf") format("truetype");
+  font-family: "Sora";
+  src: url("../fonts/Sora-Medium.ttf") format("truetype");
   font-weight: 500;
 }
 @font-face {
-  font-family: "FunnelDisplay";
-  src: url("../fonts/FunnelDisplay-SemiBold.ttf") format("truetype");
+  font-family: "Sora";
+  src: url("../fonts/Sora-SemiBold.ttf") format("truetype");
   font-weight: 600;
 }
 
 body {
-  font-family: "FunnelDisplay", sans-serif;
+  font-family: "Sora", sans-serif;
 }

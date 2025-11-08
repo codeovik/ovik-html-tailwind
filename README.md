@@ -12,13 +12,14 @@ OVIK is a Personal Portfolio website SASS template made for selling on Themefore
 - 12 October, 2025 - v2 start
 - 30 October, 2025 - v2 end
 - 03 november, 2025 - Upload to themeforest as 2nd try
-- 05 november, 2025 - Delete uploaded theme and updated: nav link index, hero section animation off, font, image parallax, plan card and smooth scroll in button click & reupload to themeforest
+- 05 november, 2025 - Delete uploaded theme and reupdated: nav link index, hero section animation off, font, image parallax, plan card and smooth scroll in button click & reupload to themeforest
+- 05 - 08 november, 2025 - 2 Demo and major update and upload to themeforest
 
 ### To run this on locally:
 1. Clone the repository and install dependencies
 ```bash
 git clone https://github.com/codeovik/ovik-html-tailwind.git
-cd ovik-portfolio-html-tailwind
+cd ovik-html-tailwind
 npm i
 ```
 
@@ -88,7 +89,7 @@ Auto replay that will go send to user
   <!-- Footer -->
   <div style="font-size:12px; opacity:0.7; line-height:1.4;">
     Best regards,<br>
-    <strong>Code Ovik</strong><br>
+    <strong>CodeOVIK</strong><br>
     <em>Code Today, Rule Tomorrow</em>
   </div>
 </div>
