@@ -61,8 +61,8 @@ butonAndLinks.forEach(e => {
   e.addEventListener("mouseenter", () => {
     gsap.killTweensOf(cursor);
     gsap.to(cursor, {
-      height: 80,
-      opacity: 0.3,
+      // duration: 0,
+      opacity: 0,
     });
   });
   e.addEventListener("mouseleave", () => {
@@ -542,7 +542,7 @@ gsap.matchMedia().add("(min-width: 1024px)", () => {
 // slide
 var swiper = new Swiper(".reviewSlide", {
   slidesPerView: "auto",
-  spaceBetween: 1,
+  spaceBetween: 20,
   loop: true,
   speed: 1000,
   grabCursor: true,
@@ -619,7 +619,7 @@ let formSaveDraft = document.querySelector("#formSaveDraft")
 // when click "save draft" button
 formSaveDraft.addEventListener("click", function (e) {
   e.preventDefault(); // off page load
-  const inputs = document.querySelectorAll(".inputFields"); // get all input
+  const inputs = document.querySelectorAll("textarea, input"); // get all input
   const data = {}; // initial data array for send to local storage
   inputs.forEach((field, i) => {
     const key = field.placeholder || `field${i}`; // get array key from input placeholder or index number like: 0, 1, 2..

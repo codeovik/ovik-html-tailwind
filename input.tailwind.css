@@ -1,29 +1,32 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* theme variable  */
+/* template varribale */
+:root {
+  --primary: #8CEFAC;
+  --primary-foreground: black;
+  --box: #00000010;
+  --background: #FFFFFF;
+  --secondary-text: #505050;
+}
+/* template varribale for dark mode */
+.dark {
+  --box: #FFFFFF10;
+  --background: #030303;
+  --secondary-text: #CCCCCC;
+}
+
+/* tailwindcss theme variable */
 @theme {
-  /* brand */
-  --color-primary: #8cefac; /* brand color */
-  --color-brand-contrast: black; /* black or white based on brand color for button and links which background is brand color */
-
-  /* text */
-  --color-light-secondary-text: #505050; /* softer text for subtitles in light theme */
-  --color-dark-secondary-text: #cccccc; /* softer text for subtitles in dark theme */
-
-  /* background */
-  --color-light-bg: #fff; /* background color in light theme */
-  --color-dark-bg: #030303; /* background color in dark theme */
-
-  /* devider/border */
-  --color-light-devider: #606060; /* devider color in light theme */
-  --color-dark-devider: #aaaaaa; /* devider color in light theme */
-
-  /* utilities */
+  --color-primary: var(--primary); /* brand color */
+  --color-primary-foreground: var(--primary-foreground); /* black or white based on brand color for button and links which background is brand color */
+  --color-secondary-text: var(--secondary-text); /* secondary text */
+  --color-background: var(--background); /* background */
+  --color-box: var(--box);  /* box background */
   --default-transition-duration: 0.5s; /* transition speed */
 }
 
-/* fonts: light, regular, medium, semibold and bold */
+/* import fonts: light, regular, medium, semibold and bold */
 @font-face {
   font-family: "Sora";
   src: url("../fonts/Sora-Light.ttf") format("truetype");
